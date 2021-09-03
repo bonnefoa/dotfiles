@@ -1,0 +1,9 @@
+[Unit]
+Description=Set a random background image
+Wants=change-bg.timer
+[Service]
+ExecStart=/usr/bin/bash -c "/usr/bin/swaymsg output '*' bg \"$(ls ~/wallpaper/* | shuf -n1)\" fit #000000"
+Restart=always
+RestartSec=30
+[Install]
+WantedBy=multi-user.target
