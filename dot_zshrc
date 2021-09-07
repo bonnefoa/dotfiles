@@ -1,6 +1,5 @@
 export ZPLUG_HOME=$HOME/git-repos/zplug
 export GOROOT=/usr/lib/go/
-export MOZ_ENABLE_WAYLAND=1
 
 source $ZPLUG_HOME/init.zsh
 
@@ -12,11 +11,11 @@ zplug "plugins/docker", from:oh-my-zsh
 if [ -d $HOME/.zsh_conf ]; then
     zplug "$HOME/.zsh_conf", from:local
 fi
-zplug "~/git-repos/.file/zplug/misc", from:local
-zplug "~/git-repos/.file/zplug/theme", from:local, as:theme
-zplug "~/git-repos/.file/zplug/kube", from:local, defer:3
-zplug "~/git-repos/.file/zplug/linux", from:local, if:"[[ $OSTYPE == *linux* ]]"
-zplug "~/git-repos/.file/zplug/mac", from:local, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "$HOME/.zsh_conf/misc", from:local
+zplug "$HOME/.zsh_conf/theme", from:local, as:theme
+zplug "$HOME/.zsh_conf/kube", from:local, defer:3
+zplug "$HOME/.zsh_conf/linux", from:local, if:"[[ $OSTYPE == *linux* ]]"
+zplug "$HOME/.zsh_conf/mac", from:local, if:"[[ $OSTYPE == *darwin* ]]"
 
 zplug "seebi/dircolors-solarized"
 zplug "changyuheng/fz", defer:1
