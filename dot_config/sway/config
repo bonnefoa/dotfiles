@@ -1,0 +1,170 @@
+### Variables
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+default_border pixel
+default_orientation vertical
+
+exec swayidle \
+     timeout 600 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' \
+     timeout 900 'swaymsg "output * dpms off"' \
+     resume 'swaymsg "output * dpms on"' \
+     before-sleep 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' 
+
+# Disable laptop display when lid is closed
+# 
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+### Output configuration
+#
+output * bg $(find ~/wallpaper -maxdepth 1 | shuf -n1) fit #000000 
+output eDP-1 pos 2560 0 scale 2
+output DP-2 pos 0 0 
+focus_wrapping no
+
+### Workspaces
+#
+for_window [class="^firefox$"] inhibit_idle fullscreen
+for_window [class="mpv"] inhibit_idle fullscreen
+
+for_window [app_id="^firefox$"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle fullscreen
+
+assign [app_id="firefox"] workspace 9
+assign [class="firefox"] workspace 9
+assign [app_id="Chromium"] workspace 8
+assign [class="Chromium"] workspace 8
+
+
+### Input
+#
+input * {
+    natural_scroll enabled
+    xkb_variant altgr-intl
+    xkb_options caps:escape,compose:ralt,level3:ralt_switch
+    xkb_numlock enable
+}
+
+input 5426:133:Razer_Razer_Basilisk_V2 {
+    natural_scroll disabled 
+}
+
+### Key bindings
+#
+# Basics:
+#
+    bindsym $mod+Shift+Return exec $term
+    bindsym $mod+Shift+c kill
+    bindsym $mod+p exec $menu
+    floating_modifier $mod normal
+    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+#
+# Moving around:
+#
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+#
+# Workspaces:
+#
+
+    bindsym $mod+1 exec ~/git-repos/.file/sway/focus_workspace.sh 1
+    bindsym $mod+2 exec ~/git-repos/.file/sway/focus_workspace.sh 2 
+    bindsym $mod+3 exec ~/git-repos/.file/sway/focus_workspace.sh 3
+    bindsym $mod+4 exec ~/git-repos/.file/sway/focus_workspace.sh 4
+    bindsym $mod+5 exec ~/git-repos/.file/sway/focus_workspace.sh 5
+    bindsym $mod+6 exec ~/git-repos/.file/sway/focus_workspace.sh 6
+    bindsym $mod+7 exec ~/git-repos/.file/sway/focus_workspace.sh 7
+    bindsym $mod+8 exec ~/git-repos/.file/sway/focus_workspace.sh 8
+    bindsym $mod+9 exec ~/git-repos/.file/sway/focus_workspace.sh 9
+
+#    workspace_auto_back_and_forth on
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+
+    bindsym $mod+Control+Shift+$right move workspace to output right
+    bindsym $mod+Control+Shift+$left move workspace to output left
+    bindsym $mod+Control+Shift+$down move workspace to output down
+    bindsym $mod+Control+Shift+$up move workspace to output up
+
+#
+# Output stuff:
+#
+
+    bindsym $mod+w focus output right 
+    bindsym $mod+e focus output left
+    bindsym $mod+Shift+w move container to output right 
+    bindsym $mod+Shift+e move container to output left
+
+#
+# Layout stuff:
+#
+    bindsym $mod+Return layout toggle tabbed split
+    bindsym $mod+f fullscreen
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+#
+# Exec commands:
+#
+
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym $mod+Down exec playerctl play-pause
+    bindsym $mod+Right exec playerctl next
+    bindsym $mod+Left exec playerctl previous
+
+    bindsym XF86MonBrightnessDown exec brightnessctl -n1 set 2%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +1%
+
+    bindsym $mod+Shift+backspace exec swaylock -i ~/.config/sway/lock_wallpaper -c 000000
+    bindsym $mod+Control+Shift+backspace exec systemctl suspend
+
+#
+# Status Bar:
+#
+bar {
+    swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
+
+# xwayland disable
+# exec MOZ_ENABLE_WAYLAND=1 firefox
+# exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
+
+exec firefox
+exec chromium 
+exec polychromatic-cli -s PM2109H13001681 --dpi 2400
