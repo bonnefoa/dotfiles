@@ -1,5 +1,7 @@
 export ZPLUG_HOME=$HOME/git-repos/zplug
 export GOROOT=/usr/lib/go/
+export VISUAL=nvim
+export EDITOR=nvim
 
 source $ZPLUG_HOME/init.zsh
 
