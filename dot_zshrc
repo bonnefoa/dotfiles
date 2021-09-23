@@ -19,12 +19,14 @@ zplug "$HOME/.zsh_conf/kube", from:local, defer:3
 zplug "$HOME/.zsh_conf/linux", from:local, if:"[[ $OSTYPE == *linux* ]]"
 zplug "$HOME/.zsh_conf/mac", from:local, if:"[[ $OSTYPE == *darwin* ]]"
 
+zplug "trystan2k/zsh-tab-title"
 zplug "seebi/dircolors-solarized"
 zplug "changyuheng/fz", defer:1
 zplug "rupa/z", use:z.sh
 
+# Kubectl autocompletion
 zplug "plugins/kubectl", from:oh-my-zsh, defer:2
-zplug "~/git-repos/kubectl-fzf", from:local, defer:3
+zplug "$HOME/git-repos/kubectl-fzf", from:local, defer:3
 
 ulimit -n 4096
 
