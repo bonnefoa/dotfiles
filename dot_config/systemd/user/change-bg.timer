@@ -1,9 +1,0 @@
-[Unit]
-Description=Run change-bg every 5 minutes
-Requires=change-bg.service
-[Timer]
-Unit=change-bg.service
-OnUnitInactiveSec=5m
-AccuracySec=1s
-[Install]
-WantedBy=timers.target
