@@ -29,4 +29,3 @@ export AWS_ASSUME_ROLE_TTL=1h
 if [[ -d $ZPLUG_HOME/repos/seebi/dircolors-solarized/ ]]; then
     eval $(dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark)
 fi
-
