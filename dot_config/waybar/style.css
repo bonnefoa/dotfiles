@@ -63,9 +63,9 @@
 
 /* The whole bar */
 #waybar {
-    background: transparent;
+    background: rgba(43, 48, 59, 0.8);
     color: #eceff4;
-    font-family: FiraCode, Noto Sans;
+    font-family: FiraCode;
     font-size: 13px;
     font-weight: bold;
 }

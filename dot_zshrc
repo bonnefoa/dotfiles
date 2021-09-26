@@ -1,3 +1,7 @@
+if [[ "$ZPROF" = true ]]; then
+  zmodload zsh/zprof
+fi
+
 export ZPLUG_HOME=$HOME/git-repos/zplug
 export GOROOT=/usr/lib/go/
 export VISUAL=nvim
@@ -10,10 +14,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 #
 # Machine specific configuration files
-if [ -d $HOME/.zsh_conf ]; then
-    zplug "$HOME/.zsh_conf", from:local
-fi
-zplug "$HOME/.zsh_conf/misc", from:local
+zplug "$HOME/.zsh_conf/", from:local
 zplug "$HOME/.zsh_conf/theme", from:local, as:theme
 zplug "$HOME/.zsh_conf/kube", from:local, defer:3
 zplug "$HOME/.zsh_conf/linux", from:local, if:"[[ $OSTYPE == *linux* ]]"
@@ -38,3 +39,7 @@ ulimit -n 4096
         . $HOME/.keychain/$HOSTNAME-sh-gpg
 
 zplug load
+
+if [[ "$ZPROF" = true ]]; then
+  zprof
+fi
