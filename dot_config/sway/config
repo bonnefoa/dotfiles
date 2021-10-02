@@ -44,10 +44,10 @@ for_window [class="mpv"] inhibit_idle fullscreen
 for_window [app_id="^firefox$"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
-assign [app_id="firefox"] workspace 9
-assign [class="firefox"] workspace 9
-assign [app_id="Chromium"] workspace 8
-assign [class="Chromium"] workspace 8
+assign [app_id="firefox"] workspace number 9
+assign [class="firefox"] workspace number 9
+assign [app_id="Chromium"] workspace number 8
+assign [class="Chromium"] workspace number 8
 
 workspace_auto_back_and_forth true
 
@@ -101,6 +101,9 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
 #    bindsym $mod+7 workspace number 7
 #    bindsym $mod+8 workspace number 8
 #    bindsym $mod+9 workspace number 9
+
+    bindsym $mod+Shift+Right workspace next_on_output
+    bindsym $mod+Shift+Left workspace prev_on_output
 
     bindsym $mod+1 exec ~/git-repos/.file/sway/focus_workspace.sh 1
     bindsym $mod+2 exec ~/git-repos/.file/sway/focus_workspace.sh 2 
