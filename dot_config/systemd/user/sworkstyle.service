@@ -1,0 +1,11 @@
+[Unit]
+Description=Automatically rename sway workspaces
+
+[Service]
+Type=simple
+ExecStart=%h/.cargo/bin/sworkstyle
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=graphical-session.target
