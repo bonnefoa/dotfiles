@@ -16,7 +16,7 @@ default_orientation vertical
 font pango:Fira Code Retina Medium 11
 
 exec swayidle \
-     timeout 900 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' \
+     timeout 1200 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' \
      timeout 1500 'swaymsg "output * dpms off"' \
      resume 'swaymsg "output * dpms on"' \
      before-sleep 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' 
