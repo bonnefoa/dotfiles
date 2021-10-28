@@ -1,35 +1,4 @@
-if [[ "$ZPROF" = true ]]; then
-  zmodload zsh/zprof
-fi
-
-export ZPLUG_HOME=$HOME/git-repos/zplug
-export GOROOT=/usr/lib/go/
-export VISUAL=nvim
-export EDITOR=nvim
-
-source $ZPLUG_HOME/init.zsh
-
-zplug "plugins/fzf", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-#
-# Machine specific configuration files
-zplug "$HOME/.zsh_conf/", from:local
-zplug "$HOME/.zsh_conf/theme", from:local, as:theme
-zplug "$HOME/.zsh_conf/kube", from:local, defer:3
-zplug "$HOME/.zsh_conf/linux", from:local, if:"[[ $OSTYPE == *linux* ]]"
-zplug "$HOME/.zsh_conf/mac", from:local, if:"[[ $OSTYPE == *darwin* ]]"
-
-zplug "trystan2k/zsh-tab-title"
-zplug "seebi/dircolors-solarized"
-zplug "changyuheng/fz", defer:1
-zplug "rupa/z", use:z.sh
-
-# Kubectl autocompletion
-zplug "plugins/kubectl", from:oh-my-zsh, defer:2
-zplug "$HOME/git-repos/kubectl-fzf", from:local, defer:3
-
-ulimit -n 4096
+source ~/.zinit/bin/zinit.zsh
 
 [ -z "$SSH_TTY" ] && keychain id_rsa -q
 [ -z "$HOSTNAME" ] && HOSTNAME=`uname -n`
@@ -38,8 +7,45 @@ ulimit -n 4096
 [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
         . $HOME/.keychain/$HOSTNAME-sh-gpg
 
-zplug load
-
-if [[ "$ZPROF" = true ]]; then
-  zprof
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# Completions 
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit ice blockf atpull'zinit creinstall -q .'; zinit light zsh-users/zsh-completions
+zinit ice as"completion"; zinit snippet OMZ::plugins/docker/_docker
+zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
+zinit ice as"completion"; zinit snippet "$HOME/git-repos/kubectl-fzf/kubectl_fzf.plugin.zsh"
+zinit ice as"completion" pick"completions/chezmoi.zsh"; zinit load twpayne/chezmoi
+
+autoload compinit
+compinit
+
+zinit light zdharma/fast-syntax-highlighting
+zinit ice pick"z.sh"; zinit light "rupa/z"
+
+
+#zinit ice as"null" atload'eval $(dircolors dircolors.256dark)' nocompile; zinit load seebi/dircolors-solarized
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
+
+zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+
+zinit snippet "$HOME/.config/zsh/conf.zsh"
+zinit snippet "$HOME/.config/zsh/completion.zsh"
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit load "trystan2k/zsh-tab-title"
+zinit load "changyuheng/fz"
+
+ulimit -n 4096
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
