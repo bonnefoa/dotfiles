@@ -184,3 +184,4 @@ include /etc/sway/config.d/*
 exec firefox
 exec chromium 
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
+exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
