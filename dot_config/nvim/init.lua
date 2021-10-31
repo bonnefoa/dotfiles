@@ -1,0 +1,7 @@
+require('plugins')
+require('options')
+require('telescope_conf')
+require('mappings')
+require('treesitter_conf')
+require('lsp_conf')
+require('snip_conf')

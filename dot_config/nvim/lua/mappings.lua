@@ -1,0 +1,6 @@
+vim.api.nvim_set_keymap('', '<C-h>', '<C-w>h', {})
+vim.api.nvim_set_keymap('', '<C-j>', '<C-w>j', {})
+vim.api.nvim_set_keymap('', '<C-k>', '<C-w>k', {})
+vim.api.nvim_set_keymap('', '<C-l>', '<C-w>l', {})
+vim.api.nvim_set_keymap('', '<leader>/', ':nohlsearch<CR>', {noremap = true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>R', [[<cmd>lua require('plenary.reload').reload_module('init', true)<CR>]], { noremap = true, silent = true })

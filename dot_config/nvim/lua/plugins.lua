@@ -1,100 +1,44 @@
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
-return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
-    use '9mm/vim-closer'
-    use {'andymass/vim-matchup', event = 'VimEnter'}
-    use {
-        'dense-analysis/ale',
-        ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'vim'},
-        cmd = 'ALEEnable',
-        config = 'vim.cmd[[ALEEnable]]'
-    }
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'overcache/NeoSolarized'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+end
 
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-    use 'godlygeek/tabular'
-    use 'scrooloose/nerdcommenter'
+vim.api.nvim_exec(
+  [[
+  augroup Packer
+    autocmd!
+    autocmd BufWritePost init.lua PackerCompile
+  augroup end
+]],
+  false
+)
 
-    use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-    use 'tpope/vim-abolish'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-git'
-    use 'tpope/vim-repeat'
-    use 'tpope/vim-surround'
+local use = require('packer').use
+require('packer').startup(function()
+  use 'wbthomason/packer.nvim' 
 
-    use {'vim-airline/vim-airline-themes', event = 'VimEnter'}
-    use {'vim-airline/vim-airline', after = 'vim-airline-themes'}
+  use 'overcache/NeoSolarized'
+  use 'tpope/vim-fugitive' 
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-surround'
+  use 'freitass/todo.txt-vim'
 
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/nvim-cmp'
+  use 'scrooloose/nerdcommenter'
+  use 'godlygeek/tabular'
+  --use 'ludovicchabant/vim-gutentags' 
 
-    local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-    parser_configs.norg = {
-        install_info = {
-            url = "https://github.com/nvim-neorg/tree-sitter-norg",
-            files = { "src/parser.c", "src/scanner.cc" },
-            branch = "main"
-        },
-    }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-    require('nvim-treesitter.configs').setup {
-        ensure_installed = { "norg", "cpp", "c", "javascript", "json", "go" },
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-    }
+  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp'
 
-    use { 
-        "nvim-neorg/neorg",
-        config = function()
-            require('neorg').setup {
-                load = {
-                    ["core.defaults"] = {}, 
-                    ["core.norg.concealer"] = {}, 
-                    ["core.norg.completion"] = {
-                        config = {
-                            engine = "nvim-cmp" 
-                        }
-                    },
-                    ["core.keybinds"] = { 
-                        config = {
-                            default_keybinds = true, 
-                            neorg_leader = "<Leader>" 
-                        }
-                    },
-                    ["core.norg.dirman"] = {
-                    config = {
-                        workspaces = {
-                            my_workspace = "~/neorg"
-                        }
-                    }
-                }
-            },
-        }
-    end,
-    requires = "nvim-lua/plenary.nvim"
-    }
-
-    --use {'ambv/black', 'rtp' = 'vim'}
-    --use 'davidhalter/jedi-vim'
-    --use 'fatih/vim-go'
-    --use 'honza/vim-snippets'
-    --use 'kana/vim-altr'
-    --use 'MarcWeber/vim-addon-mw-utils'
-    --use {'neoclide/coc.nvim', branch= 'release'}
-    --use 'SirVer/ultisnips'
-    --use 'vhdirk/vim-cmake'
-    --use 'vim-scripts/matchit.zip'
-    --use 'wannesm/wmgraphviz.vim'
-
-    -- "use 'Chiel92/vim-autoformat'
-    -- "use 'ludovicchabant/vim-gutentags'
-    -- "use 'rhysd/vim-clang-format'
-    -- "use 'scrooloose/syntastic'
-
+  -- snippets 
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'rafamadriz/friendly-snippets'
 end)
