@@ -49,6 +49,9 @@ assign [class="firefox"] workspace number 9
 assign [app_id="Chromium"] workspace number 8
 assign [class="Chromium"] workspace number 8
 
+assign [app_id="IRC"] workspace number 7
+assign [app_id="TODO"] workspace number 6
+
 workspace_auto_back_and_forth true
 
 ### Input
@@ -101,6 +104,7 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
 #    bindsym $mod+7 workspace number 7
 #    bindsym $mod+8 workspace number 8
 #    bindsym $mod+9 workspace number 9
+
 
     bindsym $mod+Shift+Right workspace next_on_output
     bindsym $mod+Shift+Left workspace prev_on_output
@@ -184,4 +188,7 @@ include /etc/sway/config.d/*
 exec firefox
 exec chromium 
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
+exec kitty 
+exec kitty --class TODO zsh -c "vim notes/todo.txt; $SHELL"
+exec kitty --class IRC zsh -c "autossh -M20000 -t pathos 'tmux a -d'; $SHELL"
 exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
