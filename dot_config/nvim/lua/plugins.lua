@@ -17,27 +17,33 @@ vim.api.nvim_exec(
 
 local use = require('packer').use
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim' 
+  use 'wbthomason/packer.nvim'
 
   use 'overcache/NeoSolarized'
-  use 'tpope/vim-fugitive' 
+  use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'freitass/todo.txt-vim'
+  use 'dense-analysis/ale'
 
+  use 'ntpeters/vim-better-whitespace'
   use 'scrooloose/nerdcommenter'
   use 'godlygeek/tabular'
-  --use 'ludovicchabant/vim-gutentags' 
+  --use 'ludovicchabant/vim-gutentags'
 
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+  use 'mfussenegger/nvim-lint'
 
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
 
-  -- snippets 
+  -- snippets
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'rafamadriz/friendly-snippets'

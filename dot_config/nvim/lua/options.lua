@@ -18,7 +18,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Don't redraw during macro apply
 vim.o.lazyredraw = true
---Match longest first in autocompletion 
+--Match longest first in autocompletion
 
 vim.o.wildmode = 'longest,list,full'
 --Automatically write file when switching buffer
@@ -45,3 +45,5 @@ vim.cmd [[colorscheme NeoSolarized]]
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
+vim.g.strip_whitespace_on_save = true
+vim.g.strip_whitespace_confirm = false
