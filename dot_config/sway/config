@@ -19,19 +19,19 @@ exec swayidle \
      timeout 1200 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' \
      timeout 1500 'swaymsg "output * dpms off"' \
      resume 'swaymsg "output * dpms on"' \
-     before-sleep 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper' 
+     before-sleep 'swaylock -c 000000 -i ~/.config/sway/lock_wallpaper'
 
 # Disable laptop display when lid is closed
-# 
+#
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 
 ### Output configuration
 #
-output * bg $(find ~/wallpaper -maxdepth 1 | shuf -n1) fit #000000 
+output * bg $(find ~/wallpaper -maxdepth 1 | shuf -n1) fit #000000
 # Main screen
-output DP-1 pos 0 0 
+output DP-1 pos 0 0
 # Laptop screen
 output eDP-1 pos 2560 0 scale 2
 focus_wrapping no
@@ -51,6 +51,7 @@ assign [class="Chromium"] workspace number 8
 
 assign [app_id="IRC"] workspace number 7
 assign [app_id="TODO"] workspace number 6
+assign [class="KeePassXC"] workspace number 10
 
 workspace_auto_back_and_forth true
 
@@ -64,7 +65,7 @@ input * {
 }
 
 input 5426:133:Razer_Razer_Basilisk_V2 {
-    natural_scroll disabled 
+    natural_scroll disabled
 }
 
 ### Key bindings
@@ -96,7 +97,7 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
 #
 
 #    bindsym $mod+1 workspace number 1
-#    bindsym $mod+2 workspace number 2 
+#    bindsym $mod+2 workspace number 2
 #    bindsym $mod+3 workspace number 3
 #    bindsym $mod+4 workspace number 4
 #    bindsym $mod+5 workspace number 5
@@ -110,7 +111,7 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
     bindsym $mod+Shift+Left workspace prev_on_output
 
     bindsym $mod+1 exec ~/git-repos/.file/sway/focus_workspace.sh 1
-    bindsym $mod+2 exec ~/git-repos/.file/sway/focus_workspace.sh 2 
+    bindsym $mod+2 exec ~/git-repos/.file/sway/focus_workspace.sh 2
     bindsym $mod+3 exec ~/git-repos/.file/sway/focus_workspace.sh 3
     bindsym $mod+4 exec ~/git-repos/.file/sway/focus_workspace.sh 4
     bindsym $mod+5 exec ~/git-repos/.file/sway/focus_workspace.sh 5
@@ -118,6 +119,7 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
     bindsym $mod+7 exec ~/git-repos/.file/sway/focus_workspace.sh 7
     bindsym $mod+8 exec ~/git-repos/.file/sway/focus_workspace.sh 8
     bindsym $mod+9 exec ~/git-repos/.file/sway/focus_workspace.sh 9
+    bindsym $mod+0 exec ~/git-repos/.file/sway/focus_workspace.sh 10
 
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
@@ -139,9 +141,9 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
 # Output stuff:
 #
 
-    bindsym $mod+w focus output right 
+    bindsym $mod+w focus output right
     bindsym $mod+e focus output left
-    bindsym $mod+Shift+w move container to output right 
+    bindsym $mod+Shift+w move container to output right
     bindsym $mod+Shift+e move container to output left
 
 #
@@ -186,9 +188,10 @@ include /etc/sway/config.d/*
 # exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 exec firefox
-exec chromium 
+exec chromium
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
-exec kitty 
+exec kitty
+exec SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket keepassxc
 exec kitty --class TODO zsh -c "vim notes/todo.txt; $SHELL"
-exec kitty --class IRC zsh -c "autossh -M20000 -t pathos 'tmux a -d'; $SHELL"
+exec kitty --class IRC zsh -c "SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket .local/bin/wait_and_connect.sh; $SHELL"
 exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
