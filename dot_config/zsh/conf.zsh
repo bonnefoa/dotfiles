@@ -16,6 +16,7 @@ alias vim=nvim
 export EDITOR=nvim
 export GOROOT=/usr/lib/go/
 export VISUAL=nvim
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 export LESS=" -S -R"
 export GOPATH="$HOME/git-repos/golang/"
@@ -37,7 +38,7 @@ ZSH_TAB_TITLE_ENABLE_FULL_COMMAND=true
 ZSH_TAB_TITLE_ADDITIONAL_TERMS='xterm-kitty'
 ZSH_TAB_TITLE_PREFIX='kitty '
 
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf Configuration 
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf Configuration
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="fd --type f --hidden --follow --exclude ".git" . "$1" "
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude ".git" . "$1" "

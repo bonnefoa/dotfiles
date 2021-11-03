@@ -1,17 +1,10 @@
 source ~/.zinit/bin/zinit.zsh
 
-[ -z "$SSH_TTY" ] && keychain id_rsa -q
-[ -z "$HOSTNAME" ] && HOSTNAME=`uname -n`
-[ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-        . $HOME/.keychain/$HOSTNAME-sh
-[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-        . $HOME/.keychain/$HOSTNAME-sh-gpg
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Completions 
+# Completions
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
