@@ -1,60 +1,60 @@
 -- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+	vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
 
 vim.api.nvim_exec(
-  [[
+	[[
   augroup Packer
     autocmd!
     autocmd BufWritePost init.lua PackerCompile
   augroup end
 ]],
-  false
+	false
 )
 
-local use = require('packer').use
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
+local use = require("packer").use
+require("packer").startup(function()
+	use("wbthomason/packer.nvim")
 
-  use 'overcache/NeoSolarized'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-  use 'freitass/todo.txt-vim'
+	use("overcache/NeoSolarized")
+	use("tpope/vim-fugitive")
+	use("tpope/vim-repeat")
+	use("tpope/vim-surround")
+	use("freitass/todo.txt-vim")
 
-  use 'ntpeters/vim-better-whitespace'
-  use 'scrooloose/nerdcommenter'
-  use 'godlygeek/tabular'
-  --use 'ludovicchabant/vim-gutentags'
+	use("ntpeters/vim-better-whitespace")
+	use("scrooloose/nerdcommenter")
+	use("godlygeek/tabular")
+	--use 'ludovicchabant/vim-gutentags'
 
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+	use("nvim-treesitter/nvim-treesitter")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
-  use 'simrat39/rust-tools.nvim'
-  use 'nvim-lua/popup.nvim'
+	use("simrat39/rust-tools.nvim")
+	use("nvim-lua/popup.nvim")
 
-  use 'sbdchd/neoformat'
-  use 'tami5/lspsaga.nvim'
+	use("sbdchd/neoformat")
+	use("tami5/lspsaga.nvim")
 
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-  use 'mfussenegger/nvim-lint'
+	use("mfussenegger/nvim-lint")
 
-  use {
-      'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp'
+	use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
+	use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+	use("hrsh7th/cmp-nvim-lsp")
 
-  -- snippets
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'rafamadriz/friendly-snippets'
+	-- snippets
+	use("saadparwaiz1/cmp_luasnip")
+	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use("rafamadriz/friendly-snippets")
 end)

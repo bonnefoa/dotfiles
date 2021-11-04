@@ -14,43 +14,42 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 -- Always draw sign column
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Don't redraw during macro apply
 vim.o.lazyredraw = true
 --Match longest first in autocompletion
 
-vim.o.wildmode = 'longest,list,full'
+vim.o.wildmode = "longest,list,full"
 --Automatically write file when switching buffer
 vim.o.autowrite = true
 vim.o.cursorline = true
 vim.o.confirm = true
 vim.o.visualbell = true
 --Indent options
-vim.o.cinoptions = 'N-sg0'
+vim.o.cinoptions = "N-sg0"
 vim.o.smartindent = true
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-vim.o.pastetoggle = '<F10>'
+vim.o.pastetoggle = "<F10>"
 vim.o.termguicolors = true
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 -- menuone: popup even when there's only one match
 -- noinsert: Do not insert text until a selection is made
 -- noselect: Do not select, force user to select one from the menu
-vim.o.completeopt='menuone,noinsert,noselect'
+vim.o.completeopt = "menuone,noinsert,noselect"
 -- Avoid showing extra messages when using completion
-vim.o.shortmess=vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 
-
-vim.cmd [[colorscheme NeoSolarized]]
+vim.cmd([[colorscheme NeoSolarized]])
 
 --Remap , as leader key
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 vim.g.strip_whitespace_on_save = true
 vim.g.strip_whitespace_confirm = false
