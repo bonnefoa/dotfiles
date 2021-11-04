@@ -24,7 +24,6 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'freitass/todo.txt-vim'
-  use 'dense-analysis/ale'
 
   use 'ntpeters/vim-better-whitespace'
   use 'scrooloose/nerdcommenter'
@@ -34,10 +33,21 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+  use 'simrat39/rust-tools.nvim'
+  use 'nvim-lua/popup.nvim'
+
+  use 'sbdchd/neoformat'
+  use 'tami5/lspsaga.nvim'
+
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use 'mfussenegger/nvim-lint'
+
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
