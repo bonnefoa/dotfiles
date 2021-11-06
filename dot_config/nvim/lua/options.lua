@@ -21,6 +21,7 @@ vim.o.lazyredraw = true
 --Match longest first in autocompletion
 
 vim.o.wildmode = "longest,list,full"
+vim.o.wildignore = "*.o,*.obj,.git,dist,deps,logs,*.pyc,**/target/**,*.d,docs,*.o,autom4te.cache,build-aux,doxydoc,*.la,*.sign,*.pub,*.trs,*.Po,*.pyo,**/eggs/**,**/parts/**,*.log,*.vdproj,*.src,*.sln,*.ri,*_check"
 --Automatically write file when switching buffer
 vim.o.autowrite = true
 vim.o.cursorline = true
@@ -53,3 +54,5 @@ vim.g.maplocalleader = ","
 
 vim.g.strip_whitespace_on_save = true
 vim.g.strip_whitespace_confirm = false
+
+vim.g.gutentags_cache_dir = "~/.local/share/nvim/tags"
