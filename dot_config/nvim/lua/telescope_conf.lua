@@ -22,8 +22,8 @@ end
 --Add leader shortcuts
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>sf", [[<cmd>lua require('telescope.builtin').find_files()<CR>]], opts)
-vim.api.nvim_set_keymap("n", "<leader>sg", [[<cmd>lua Grep_from_search()<CR>]], opts)
-vim.api.nvim_set_keymap("n", "<leader>sG", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+vim.api.nvim_set_keymap("n", "<leader>sg", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], opts)
+vim.api.nvim_set_keymap("n", "<leader>sG", [[<cmd>lua Grep_from_search()<CR>]], opts)
 vim.api.nvim_set_keymap("n", "<leader>st", [[<cmd>lua require('telescope.builtin').tags()<CR>]], opts)
 vim.api.nvim_set_keymap("n", "<leader>sb", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], opts)
 vim.api.nvim_set_keymap("n", "<leader>sB", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], opts)
