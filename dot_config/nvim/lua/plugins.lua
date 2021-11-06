@@ -28,7 +28,7 @@ require("packer").startup(function()
 	use("ntpeters/vim-better-whitespace")
 	use("scrooloose/nerdcommenter")
 	use("godlygeek/tabular")
-	--use 'ludovicchabant/vim-gutentags'
+	use('ludovicchabant/vim-gutentags')
 
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
