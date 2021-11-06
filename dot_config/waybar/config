@@ -3,7 +3,7 @@
     // Global configuration
     // -------------------------------------------------------------------------
 
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "height": 22,
     "width": "",
@@ -100,7 +100,7 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": " {essid} {signalStrength}%", 
+        "format-wifi": " {essid} {signalStrength}%",
         "format-ethernet": " {ifname}",
         "format-disconnected": "Disconnected",
         "tooltip": false

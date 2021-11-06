@@ -8,7 +8,7 @@ set $right l
 
 set $term kitty
 
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run | xargs swaymsg exec --
 
 default_border pixel
 default_orientation vertical
