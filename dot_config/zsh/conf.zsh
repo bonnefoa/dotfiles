@@ -16,7 +16,9 @@ alias vim=nvim
 export EDITOR=nvim
 export GOROOT=/usr/lib/go/
 export VISUAL=nvim
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export NNN_FIFO="$XDG_RUNTIME_DIR/nnn_fifo"
+export NNN_PLUG="f:finder;p:preview-tui"
 
 export LESS=" -S -R"
 export GOPATH="$HOME/git-repos/golang/"
