@@ -39,6 +39,8 @@ require("packer").startup(function()
 	use("sbdchd/neoformat")
 	use("tami5/lspsaga.nvim")
 
+    use("nvim-lua/lsp-status.nvim")
+
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 

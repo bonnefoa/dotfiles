@@ -1,3 +1,9 @@
+local lsp_status = require("lsp-status")
+lsp_status.config({
+	current_function = false,
+	diagnostics = false,
+})
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -10,7 +16,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", { "diagnostics", sources = { "nvim_lsp" } } },
-		lualine_c = { { "filename", path=1 } },
+		lualine_c = { { "filename", path = 1 }, "require'lsp-status'.status()" },
 
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
@@ -19,7 +25,7 @@ require("lualine").setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { { "filename", path=1 } },
+		lualine_c = { { "filename", path = 1 } },
 		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},

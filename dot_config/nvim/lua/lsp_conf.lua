@@ -1,6 +1,9 @@
 -- LSP settings
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
 local nvim_lsp = require("lspconfig")
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+	lsp_status.on_attach(client)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -20,8 +23,9 @@ local on_attach = function(_, bufnr)
 	buf_set_keymap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>", {})
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 local servers = { "clangd", "rust_analyzer", "pyright" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
