@@ -203,7 +203,7 @@
   # Default current directory color.
 {{- if eq .chezmoi.hostname "arpi" }}
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=124
-{{ else }}
+{{- else }}
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
 {{- end }}
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -217,7 +217,7 @@
   # segment is always an anchor.
 {{- if eq .chezmoi.hostname "arpi" }}
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=196
-{{ else }}
+{{- else }}
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
 {{- end }}
   # Display anchor directory segments in bold.
