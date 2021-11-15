@@ -1,0 +1,5 @@
+[Unit]
+Description=Backs up files
+
+[Service]
+ExecStart=/usr/bin/rsync %h/notes/todo.txt %h/notes/Passwords.kdbx -CErltm --delete arpi:~/backup
