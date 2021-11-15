@@ -3,7 +3,7 @@ set -eu
 
 check_key ()
 {
-    ssh-add -l 2>/dev/null | grep -q sana
+    ykman list | grep -q 15497705
 }
 
 while ! check_key; do
@@ -11,4 +11,4 @@ while ! check_key; do
 done
 
 pkill autossh || true
-autossh -M20000 -t pathos 'tmux a -d'; $SHELL
+autossh -M20000 -t arpi 'tmux -u a -d'; $SHELL
