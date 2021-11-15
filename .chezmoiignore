@@ -1,0 +1,10 @@
+{{- if ne .chezmoi.hostname "sana" }}
+.config/kitty
+.config/Yubico/u2f_keys
+.config/pulse
+.config/sway
+.config/sworkstyle
+.config/systemd
+.config/waybar
+.local/bin
+{{- end }}
