@@ -1,5 +1,6 @@
 -- luasnip setup
 local luasnip = require("luasnip")
+luasnip.filetype_extend("zsh", {"sh"})
 
 -- nvim-cmp setup
 local cmp = require("cmp")
