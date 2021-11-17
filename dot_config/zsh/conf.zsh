@@ -14,7 +14,6 @@ alias nnn='nnn -P p'
 export EDITOR=nvim
 export GOROOT=/usr/lib/go/
 export VISUAL=nvim
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export NNN_FIFO="$XDG_RUNTIME_DIR/nnn_fifo"
 export NNN_PLUG="f:finder;p:preview-tui"
 
@@ -33,6 +32,9 @@ export AWS_ASSUME_ROLE_TTL=1h
 # Vim mode timeout
 export KEYTIMEOUT=1
 
+# SSH Agent socket
+[ -z "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Tab title
 ZSH_TAB_TITLE_ENABLE_FULL_COMMAND=true
 ZSH_TAB_TITLE_ADDITIONAL_TERMS='xterm-kitty'
@@ -42,8 +44,6 @@ ZSH_TAB_TITLE_PREFIX='kitty '
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="fd --type f --hidden --follow --exclude ".git" . "$1" "
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude ".git" . "$1" "
-#export FZF_BASE="$GOPATH/src/github.com/junegunn/fzf"
-
 
 # https://github.com/junegunn/fzf Configuration
 export FZF_COMPLETION_OPTS='+c -x'
