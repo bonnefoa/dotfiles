@@ -26,13 +26,33 @@ end
 local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = { "clangd", "rust_analyzer", "pyright" }
+local servers = { "clangd", "rust_analyzer" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end
+
+nvim_lsp.pylsp.setup({
+    on_attach = on_attach,
+    settings = {
+        pylsp = {
+            plugins = {
+                pylint = { enabled = true, executable = "pylint" },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                jedi_completion = { fuzzy = true },
+                pyls_isort = { enabled = false },
+                pylsp_mypy = { enabled = true },
+            },
+        },
+    },
+    flags = {
+        debounce_text_changes = 200,
+    },
+    capabilities = capabilities,
+})
 
 -- Lua setup
 local runtime_path = vim.split(package.path, ";")
