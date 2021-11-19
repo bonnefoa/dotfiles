@@ -56,3 +56,6 @@ vim.g.strip_whitespace_on_save = true
 vim.g.strip_whitespace_confirm = false
 
 vim.g.gutentags_cache_dir = "~/.local/share/nvim/tags"
+
+vim.g.neoformat_enabled_python = {'black', 'isort'}
+vim.g.neoformat_run_all_formatters = 1
