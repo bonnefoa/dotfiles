@@ -23,6 +23,7 @@ require("packer").startup(function()
 	use("tpope/vim-fugitive")
 	use("tpope/vim-repeat")
 	use("tpope/vim-surround")
+	use("tpope/vim-eunuch")
 	use("freitass/todo.txt-vim")
 
 	use("ntpeters/vim-better-whitespace")
