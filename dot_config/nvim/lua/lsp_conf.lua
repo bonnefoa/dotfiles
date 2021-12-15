@@ -34,11 +34,49 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+nvim_lsp.pylsp.setup({
+    on_attach = on_attach,
+    settings = {
+        pylsp = {
+            plugins = {
+                pylint = { enabled = true, executable = "pylint" },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                jedi_completion = { fuzzy = true },
+                pyls_isort = { enabled = false },
+                pylsp_mypy = { enabled = true },
+            },
+        },
+    },
+    flags = {
+        debounce_text_changes = 200,
+    },
+    capabilities = capabilities,
+})
+
+-- Yaml
+nvim_lsp.yamlls.setup {
+    --cmd = cmd,
+    on_attach = on_attach,
+    settings = {
+        yaml = {
+            trace = {
+                server = "verbose"
+            },
+            schemas = {
+                kubernetes = "/*.yaml"
+            },
+            schemaDownload = {  enable = true },
+            validate = true,
+        }
+    },
+}
+
 -- Lua setup
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-require("lspconfig").sumneko_lua.setup({
+nvim_lsp.sumneko_lua.setup({
 	cmd = { "lua-language-server" },
 	on_attach = on_attach,
 	capabilities = capabilities,
