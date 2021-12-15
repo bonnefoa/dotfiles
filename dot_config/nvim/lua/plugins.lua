@@ -36,6 +36,7 @@ require("packer").startup(function()
 
 	use("simrat39/rust-tools.nvim")
 	use("nvim-lua/popup.nvim")
+	use("chrisbra/csv.vim")
 
 	use("sbdchd/neoformat")
 	use("tami5/lspsaga.nvim")
