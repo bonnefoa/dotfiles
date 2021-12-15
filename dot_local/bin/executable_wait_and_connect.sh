@@ -3,7 +3,7 @@ set -eu
 
 check_key ()
 {
-    ykman list | grep -q 15497705
+    ykman list | grep -qE "(15497705|16395062)"
 }
 
 while ! check_key; do
