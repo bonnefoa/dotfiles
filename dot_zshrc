@@ -1,4 +1,5 @@
-source /usr/share/zsh/share/antigen.zsh
+[[ ! -f /usr/share/zsh/share/antigen.zsh ]] || source /usr/share/zsh/share/antigen.zsh
+[[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -13,11 +14,11 @@ antigen bundle robbyrussell/oh-my-zsh plugins/fzf
 antigen bundle robbyrussell/oh-my-zsh plugins/git
 
 antigen bundle twpayne/chezmoi completions/chezmoi.zsh
+antigen bundle zsh-users/zsh-completions
 antigen bundle rupa/z z.sh
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle changyuheng/fz
 antigen bundle zdharma-continuum/fast-syntax-highlighting
-antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
 
 . "$HOME/.config/zsh/conf.zsh"
 . "$HOME/.config/zsh/completion.zsh"
