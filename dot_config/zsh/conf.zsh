@@ -18,11 +18,12 @@ export NNN_FIFO="$XDG_RUNTIME_DIR/nnn_fifo"
 export NNN_PLUG="f:finder;p:preview-tui"
 
 export LESS=" -S -R"
-export GOPATH="$HOME/git-repos/golang/"
+export GOPATH="$HOME/git-repos/golang"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export PATH="$HOME/.cargo/bin:$HOME/virtual/bin:$PATH:$HOME/git-repos/devtools/bin/"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$GOPATH/bin:$HOME/git-repos/devtools/bin/:$PATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
 export PYTHONDONTWRITEBYTECODE="1"
 export LANG="en_US.utf8"
 export LC_ALL="en_US.UTF-8"
