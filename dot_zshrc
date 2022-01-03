@@ -23,6 +23,7 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 . "$HOME/.config/zsh/conf.zsh"
 . "$HOME/.config/zsh/completion.zsh"
 . "$HOME/.local/share/lscolors.sh"
+[[ ! -f "$HOME/.config/zsh/mac.zsh" ]] || source "$HOME/.config/zsh/mac.zsh"
 
 antigen theme romkatv/powerlevel10k
 
