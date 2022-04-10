@@ -12,15 +12,20 @@ alias nnn='nnn -P p'
 
 # ENV
 export EDITOR=nvim
-export GOROOT=/usr/lib/go/
+
+if [[ -d /usr/local/opt/go/libexec ]]; then
+    export GOROOT=/usr/local/opt/go/libexec
+else
+    export GOROOT=/usr/lib/go/
+fi
 export VISUAL=nvim
 export NNN_FIFO="$XDG_RUNTIME_DIR/nnn_fifo"
 export NNN_PLUG="f:finder;p:preview-tui"
 
 export LESS=" -S -R"
-export GOPATH="$HOME/git-repos/golang"
+export GOPATH="$HOME/dd/golang"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$GOPATH/bin:$HOME/git-repos/devtools/bin/:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$GOPATH/bin:$HOME/dd/devtools/bin/:$PATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}

@@ -1,9 +1,6 @@
 -- Make line numbers default
 vim.o.relativenumber = true
 
--- Enable break indent
-vim.o.breakindent = true
-
 --Save undo history
 vim.o.undofile = true
 
@@ -14,7 +11,7 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 -- Always draw sign column
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = "no"
 
 -- Don't redraw during macro apply
 vim.o.lazyredraw = true

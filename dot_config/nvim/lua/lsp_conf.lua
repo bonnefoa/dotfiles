@@ -26,51 +26,34 @@ end
 local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
+--local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
+local servers = { "bashls", "gopls", "pyright", "tsserver" }
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
+    nvim_lsp[lsp].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+    })
 end
 
-nvim_lsp.pylsp.setup({
-    on_attach = on_attach,
-    settings = {
-        pylsp = {
-            plugins = {
-                pylint = { enabled = true, executable = "pylint" },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                jedi_completion = { fuzzy = true },
-                pyls_isort = { enabled = false },
-                pylsp_mypy = { enabled = true },
-            },
-        },
-    },
-    flags = {
-        debounce_text_changes = 200,
-    },
-    capabilities = capabilities,
-})
-
--- Yaml
-nvim_lsp.yamlls.setup {
-    --cmd = cmd,
-    on_attach = on_attach,
-    settings = {
-        yaml = {
-            trace = {
-                server = "verbose"
-            },
-            schemas = {
-                kubernetes = "/*.yaml"
-            },
-            schemaDownload = {  enable = true },
-            validate = true,
-        }
-    },
-}
+--nvim_lsp.pylsp.setup({
+    --on_attach = on_attach,
+    --settings = {
+        --pylsp = {
+            --plugins = {
+                --pylint = { enabled = true, executable = "pylint" },
+                --pyflakes = { enabled = false },
+                --pycodestyle = { enabled = false },
+                --jedi_completion = { fuzzy = true },
+                --pyls_isort = { enabled = false },
+                --pylsp_mypy = { enabled = true },
+            --},
+        --},
+    --},
+    --flags = {
+        --debounce_text_changes = 200,
+    --},
+    --capabilities = capabilities,
+--})
 
 -- Lua setup
 local runtime_path = vim.split(package.path, ";")
@@ -95,31 +78,6 @@ nvim_lsp.sumneko_lua.setup({
 			},
 			telemetry = {
 				enable = false,
-			},
-		},
-	},
-})
-
--- Rust setup
-require("rust-tools").setup({
-	tools = {
-		autoSetHints = true,
-		hover_with_actions = true,
-		inlay_hints = {
-			show_parameter_hints = false,
-			parameter_hints_prefix = "",
-			other_hints_prefix = "",
-		},
-	},
-	-- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-	server = {
-		on_attach = on_attach,
-		settings = {
-			["rust-analyzer"] = {
-				-- enable clippy on save
-				checkOnSave = {
-					command = "clippy",
-				},
 			},
 		},
 	},

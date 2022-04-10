@@ -22,8 +22,8 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 . "$HOME/.config/zsh/conf.zsh"
 . "$HOME/.config/zsh/completion.zsh"
-. "$HOME/.local/share/lscolors.sh"
 [[ ! -f "$HOME/.config/zsh/mac.zsh" ]] || source "$HOME/.config/zsh/mac.zsh"
+. "$HOME/.local/share/lscolors.sh"
 
 antigen theme romkatv/powerlevel10k
 
@@ -31,5 +31,6 @@ antigen apply
 
 ulimit -n 4096
 
+export POWERLEVEL9K_DISABLE_GITSTATUS=true
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

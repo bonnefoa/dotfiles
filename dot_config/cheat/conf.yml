@@ -1,17 +1,13 @@
 ---
 editor: nvim
-
 colorize: true
-
 style: monokai
-
 formatter: terminal16m
-
-pager: less -FRX
+#pager: less -FRX
 
 cheatpaths:
   - name: datadog
-    path: ~/.config/cheat/cheatsheets/datadog
+    path: ~/dd/cheatsheets-infra
     tags: [ datadog ]
     readonly: false
 

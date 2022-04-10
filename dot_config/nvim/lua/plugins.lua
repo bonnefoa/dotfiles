@@ -28,14 +28,14 @@ require("packer").startup(function()
     use("godlygeek/tabular")
     use("ludovicchabant/vim-gutentags")
 
-    use("nvim-treesitter/nvim-treesitter")
-    use("nvim-treesitter/nvim-treesitter-textobjects")
-
-    use("simrat39/rust-tools.nvim")
     use("nvim-lua/popup.nvim")
     use("chrisbra/csv.vim")
 
-    use("mhartington/formatter.nvim")
+    use("nvim-treesitter/nvim-treesitter")
+    use("nvim-treesitter/nvim-treesitter-textobjects")
+
+
+    use('sbdchd/neoformat')
     use("tami5/lspsaga.nvim")
 
     use("nvim-lua/lsp-status.nvim")
@@ -57,4 +57,6 @@ require("packer").startup(function()
     use("rafamadriz/friendly-snippets")
 
     use("fatih/vim-go")
+    use("leafgarland/typescript-vim")
+    use("neoclide/vim-jsx-improve")
 end)
