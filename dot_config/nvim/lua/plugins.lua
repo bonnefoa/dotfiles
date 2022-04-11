@@ -29,7 +29,6 @@ require("packer").startup(function()
     use("ludovicchabant/vim-gutentags")
 
     use("nvim-lua/popup.nvim")
-    use("chrisbra/csv.vim")
 
     use("nvim-treesitter/nvim-treesitter")
     use("nvim-treesitter/nvim-treesitter-textobjects")
