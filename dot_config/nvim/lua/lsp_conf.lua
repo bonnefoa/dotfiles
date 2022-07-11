@@ -1,6 +1,10 @@
 -- LSP settings
 local lsp_status = require("lsp-status")
 lsp_status.register_progress()
+lsp_status.config({
+    indicator_info = 'i',
+    status_symbol = '',
+})
 local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
 	lsp_status.on_attach(client)
@@ -27,13 +31,19 @@ local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
-local servers = { "bashls", "gopls", "pyright", "tsserver" }
+local servers = { "gopls", "pyright", "tsserver", "clangd" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
     })
 end
+
+nvim_lsp.bashls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "sh", "zsh" },
+})
 
 --nvim_lsp.pylsp.setup({
     --on_attach = on_attach,
