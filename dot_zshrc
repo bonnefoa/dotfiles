@@ -17,13 +17,15 @@ antigen bundle rupa/z z.sh
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle changyuheng/fz
 antigen bundle zdharma-continuum/fast-syntax-highlighting
+
 antigen theme "$HOME/.config/zsh/theme"
 
-. "$HOME/.config/zsh/conf.zsh"
-. "$HOME/.config/zsh/completion.zsh"
-[[ ! -f "$HOME/.config/zsh/mac.zsh" ]] || source "$HOME/.config/zsh/mac.zsh"
-. "$HOME/.local/share/lscolors.sh"
+antigen bundle "$HOME/.config/zsh/completion"
+antigen bundle "$HOME/.config/zsh/conf"
 
 antigen apply
+
+[[ ! -f "$HOME/.config/zsh/mac.zsh" ]] || source "$HOME/.config/zsh/mac.zsh"
+. "$HOME/.local/share/lscolors.sh"
 
 ulimit -n 4096
