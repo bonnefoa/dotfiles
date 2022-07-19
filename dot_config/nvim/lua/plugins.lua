@@ -26,13 +26,11 @@ require("packer").startup(function()
     use("ntpeters/vim-better-whitespace")
     use("scrooloose/nerdcommenter")
     use("godlygeek/tabular")
-    use("ludovicchabant/vim-gutentags")
 
     use("nvim-lua/popup.nvim")
 
     use("nvim-treesitter/nvim-treesitter")
     use("nvim-treesitter/nvim-treesitter-textobjects")
-
 
     use('sbdchd/neoformat')
     use("tami5/lspsaga.nvim")
@@ -58,4 +56,14 @@ require("packer").startup(function()
     use("fatih/vim-go")
     use("leafgarland/typescript-vim")
     use("neoclide/vim-jsx-improve")
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                height = 5,
+            }
+        end
+    }
 end)

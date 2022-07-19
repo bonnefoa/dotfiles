@@ -22,3 +22,5 @@ set_keymap("<C-j>", "<C-w>j", "")
 set_keymap("<C-k>", "<C-w>k", "")
 set_keymap("<C-l>", "<C-w>l", "")
 set_keymap("<leader>/", ":nohlsearch<CR>", "")
+
+set_keymap("<leader>xx", "<cmd>TroubleToggle<cr>", "")
