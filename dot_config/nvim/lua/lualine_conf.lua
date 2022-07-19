@@ -1,9 +1,3 @@
-local lsp_status = require("lsp-status")
-lsp_status.config({
-	current_function = false,
-	diagnostics = false,
-})
-
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
