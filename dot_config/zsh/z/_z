@@ -4,10 +4,9 @@ function _z() {
     # Only show completions when the cursor is at the end of the line.
     # shellcheck disable=SC2154
     [[ "${#words[@]}" -eq "${CURRENT}" ]] || return
-
     local result
     # shellcheck disable=SC2086,SC2312
-    if result="$(\command zoxide query --exclude "$(__zoxide_pwd)" -i -- ${words[1,-1]})"; then
+    if result="$(\command zoxide query --exclude "$(__zoxide_pwd)" -i -- ${words[2,-1]})"; then
         __zoxide_result="${result}"
     else
         __zoxide_result=''
@@ -15,5 +14,6 @@ function _z() {
     # This will trigger the __zoxide_z_complete_helper
     # as the terminal will answer "\e[0n" on which the helper
     # function is bound
+    __zoxide_z_prefix=''
     builtin printf '\e[5n'
 }
