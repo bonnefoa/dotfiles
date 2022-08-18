@@ -1,31 +1,13 @@
-[[ ! -f /usr/share/zsh/share/antigen.zsh ]] || source /usr/share/zsh/share/antigen.zsh
-[[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
-
+#zmodload zsh/zprof
 typeset -g ZSH_CACHE_DIR
 ZSH_CACHE_DIR="$HOME/.local/share/zsh/cache"
 
-antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
-antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
-antigen bundle robbyrussell/oh-my-zsh plugins/docker
-antigen bundle robbyrussell/oh-my-zsh plugins/kubectl
-antigen bundle robbyrussell/oh-my-zsh plugins/fzf
-antigen bundle robbyrussell/oh-my-zsh plugins/git
+[[ ! -f /usr/share/zsh/share/antigen.zsh ]] || source /usr/share/zsh/share/antigen.zsh
+[[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 
-antigen bundle twpayne/chezmoi completions/chezmoi.zsh
-antigen bundle zsh-users/zsh-completions
-antigen bundle trystan2k/zsh-tab-title
-antigen bundle ajeetdsouza/zoxide@main
-antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen init "$HOME/.config/antigen/.antigenrc"
 
-antigen theme "$HOME/.config/zsh/theme"
-
-antigen bundle "$HOME/.config/zsh/completion"
-antigen bundle "$HOME/.config/zsh/conf"
-antigen bundle "$HOME/.config/zsh/z"
-
-antigen apply
-
-[[ ! -f "$HOME/.config/zsh/mac.zsh" ]] || source "$HOME/.config/zsh/mac.zsh"
 . "$HOME/.local/share/lscolors.sh"
 
 ulimit -n 4096
+#zprof
