@@ -1,6 +1,9 @@
 -- Make line numbers default
 vim.o.relativenumber = true
 
+-- Disable mouse
+vim.o.mouse = ""
+
 --Save undo history
 vim.o.undofile = true
 
