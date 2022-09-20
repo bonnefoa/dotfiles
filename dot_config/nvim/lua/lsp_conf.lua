@@ -32,13 +32,26 @@ local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
-local servers = { "gopls", "pyright", "tsserver", "clangd" }
+--local servers = { "gopls", "pyright", "tsserver", "clangd" }
+local servers = { "gopls", "tsserver", "clangd" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
     })
 end
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 120
+        }
+      }
+    }
+  }
+}
 
 nvim_lsp.bashls.setup({
     on_attach = on_attach,
