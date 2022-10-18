@@ -1,3 +1,5 @@
+[[ -d "$HOME/.config/zsh/mac" ]] && antigen bundle "$HOME/.config/zsh/mac"
+
 antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
 antigen bundle robbyrussell/oh-my-zsh plugins/kubectl
@@ -17,7 +19,6 @@ antigen bundle robbyrussell/oh-my-zsh plugins/docker
 antigen theme "$HOME/.config/zsh/theme"
 
 antigen bundle "$HOME/.config/zsh/completion"
-[[ -f "$HOME/.config/zsh/mac" ]] && antigen bundle "$HOME/.config/zsh/mac"
 antigen bundle "$HOME/.config/zsh/conf"
 antigen bundle "$HOME/.config/zsh/z"
 
