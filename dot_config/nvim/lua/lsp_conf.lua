@@ -29,7 +29,8 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = lsp_status.capabilities
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
 --local servers = { "gopls", "pyright", "tsserver", "clangd" }
