@@ -2,6 +2,7 @@
 typeset -g ZSH_CACHE_DIR
 ZSH_CACHE_DIR="$HOME/.local/share/zsh/cache"
 
+[[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
 [[ ! -f /usr/share/zsh/share/antigen.zsh ]] || source /usr/share/zsh/share/antigen.zsh
 [[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
 
