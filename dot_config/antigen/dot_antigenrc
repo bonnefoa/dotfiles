@@ -10,7 +10,6 @@ antigen bundle twpayne/chezmoi completions/chezmoi.zsh
 antigen bundle zsh-users/zsh-completions
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle jonmosco/kube-ps1
-antigen bundle ajeetdsouza/zoxide@main
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/docker
 [[ -d "$HOME/git-repos/kubectl-fzf" ]] && antigen bundle $HOME/git-repos/kubectl-fzf@main shell/

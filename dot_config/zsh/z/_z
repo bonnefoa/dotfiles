@@ -11,6 +11,7 @@ function _z() {
     else
         __zoxide_result=''
     fi
+
     # This will trigger the __zoxide_z_complete_helper
     # as the terminal will answer "\e[0n" on which the helper
     # function is bound
