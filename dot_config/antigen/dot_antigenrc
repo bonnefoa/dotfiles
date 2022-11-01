@@ -6,7 +6,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
 antigen bundle robbyrussell/oh-my-zsh plugins/fzf
 antigen bundle robbyrussell/oh-my-zsh plugins/git
 
-if [[ -f /usr/bin/kubectl ]]; then 
+if [[ -f /usr/bin/kubectl ]]; then
     antigen bundle robbyrussell/oh-my-zsh plugins/kubectl
     antigen bundle jonmosco/kube-ps1
     [[ -d "$HOME/git-repos/kubectl-fzf" ]] && antigen bundle $HOME/git-repos/kubectl-fzf@main shell
