@@ -8,14 +8,10 @@ alias ls='exa'
 alias la='exa -alh -snew'
 alias grep='grep --color '
 alias vim=nvim
-alias nnn='nnn -P p'
 
 # ENV
 export EDITOR=nvim
-
 export VISUAL=nvim
-export NNN_FIFO="$XDG_RUNTIME_DIR/nnn_fifo"
-export NNN_PLUG="f:finder;p:preview-tui"
 
 export LESS=" -S -R"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
@@ -49,10 +45,6 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-if [[ -d $HOME/local/google-cloud-sdk ]]; then
-	source $HOME/local/google-cloud-sdk/completion.zsh.inc
-fi
-
 # Vim mode configuration
 bindkey -v
 
@@ -71,7 +63,6 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_verify
-#setopt inc_append_history
 setopt share_history
 
 # Navigation
