@@ -1,4 +1,5 @@
 #zmodload zsh/zprof
+#ANTIGEN_LOG=/tmp/antigen_log
 typeset -g ZSH_CACHE_DIR
 ZSH_CACHE_DIR="$HOME/.local/share/zsh/cache"
 

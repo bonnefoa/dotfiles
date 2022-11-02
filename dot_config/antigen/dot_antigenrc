@@ -18,6 +18,7 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle trystan2k/zsh-tab-title
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/docker
+antigen bundle bonnefoa/cdfile@main
 
 antigen bundle "$HOME/.config/zsh/completion"
 antigen bundle "$HOME/.config/zsh/z"
