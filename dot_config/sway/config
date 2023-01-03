@@ -75,7 +75,7 @@ input 5426:133:Razer_Razer_Basilisk_V2 {
     bindsym $mod+Shift+Return exec $term
     bindsym $mod+Shift+c kill
     bindsym $mod+p exec $menu
-    floating_modifier $mod normal
+    floating_modifier none normal
     bindsym $mod+Shift+r reload
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
