@@ -7,7 +7,7 @@ PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[green]%}%n@)%m %{$fg_bold[blue]%}%(!.%1
 RPROMPT='$(date +"%H:%M:%S")'
 
 KUBE_PS1_SYMBOL_ENABLE=false
-whence kube_ps1 > /dev/null && RPROMPT="\$(kube_ps1) $RPROMPT"
+whence kube_ps1 > /dev/null && kubectl config current-context 2> /dev/null && RPROMPT="\$(kube_ps1) $RPROMPT"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=") "
