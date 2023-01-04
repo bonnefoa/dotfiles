@@ -33,8 +33,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
---local servers = { "gopls", "pyright", "tsserver", "clangd" }
-local servers = { "gopls", "tsserver", "clangd" }
+local servers = { "gopls", "tsserver" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
@@ -42,43 +41,34 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-require'lspconfig'.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          maxLineLength = 120
-        }
-      }
-    }
-  }
-}
-
 nvim_lsp.bashls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "sh", "zsh" },
 })
 
---nvim_lsp.pylsp.setup({
-    --on_attach = on_attach,
-    --settings = {
-        --pylsp = {
-            --plugins = {
-                --pylint = { enabled = true, executable = "pylint" },
+require'lspconfig'.pylsp.setup({
+    on_attach = on_attach,
+    settings = {
+        pylsp = {
+            plugins = {
+                pylint = { enabled = true, executable = "pylint" },
                 --pyflakes = { enabled = false },
                 --pycodestyle = { enabled = false },
                 --jedi_completion = { fuzzy = true },
-                --pyls_isort = { enabled = false },
-                --pylsp_mypy = { enabled = true },
-            --},
-        --},
-    --},
-    --flags = {
-        --debounce_text_changes = 200,
-    --},
-    --capabilities = capabilities,
---})
+                pyls_isort = { enabled = true },
+                pylsp_mypy = { enabled = true },
+                pycodestyle = {
+                    maxLineLength = 120
+                },
+            },
+        },
+    },
+    flags = {
+        debounce_text_changes = 200,
+    },
+    capabilities = capabilities,
+})
 
 -- Lua setup
 local runtime_path = vim.split(package.path, ";")

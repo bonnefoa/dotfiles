@@ -41,6 +41,8 @@ require("packer").startup(function()
     use({"nvim-telescope/telescope.nvim", requires = {"nvim-lua/plenary.nvim"}})
     use({"nvim-telescope/telescope-fzf-native.nvim", run = "make"})
 
+    use("ludovicchabant/vim-gutentags")
+
     use("mfussenegger/nvim-lint")
 
     use({"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}})

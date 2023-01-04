@@ -56,3 +56,5 @@ vim.g.strip_whitespace_on_save = true
 vim.g.strip_whitespace_confirm = false
 
 vim.g.gutentags_cache_dir = "~/.local/share/nvim/tags"
+vim.g.gutentags_ctags_exclude = {'*.git', '*.svg', '*.hg','*/tests/*','build','dist','.tox','*sites/*/files/*','bin','node_modules','bower_components','cache','compiled','docs','example','bundle','vendor','*.md','*-lock.json','*.lock','*bundle*.js','*build*.js','.*rc*','*.json','*.min.*','*.map','*.bak','*.zip','*.pyc','*.class','*.sln','*.Master','*.csproj','*.tmp','*.csproj.user','*.cache','*.pdb','tags*','cscope.*','*.css','*.less','*.scss','*.js','*.exe', '*.dll','*.mp3', '*.ogg', '*.flac','*.swp', '*.swo','*.bmp', '*.gif', '*.ico', '*.jpg', '*.png','*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2','*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx','*.html', '*.mk', 'Makefile', '*.y', '*.build', '*.in', 'Makefile', 'GNUmakefile', 'configure', '*.status', '*.xsl', '*.sql', '*.txt'}
+
