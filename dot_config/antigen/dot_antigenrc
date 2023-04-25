@@ -1,4 +1,5 @@
 [[ -d "$HOME/.config/zsh/mac" ]] && antigen bundle "$HOME/.config/zsh/mac"
+[[ -d "$HOME/.config/zsh/linux" ]] && antigen bundle "$HOME/.config/zsh/linux"
 
 antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
