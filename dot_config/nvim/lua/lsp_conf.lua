@@ -33,7 +33,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
-local servers = { "gopls", "tsserver" }
+local servers = { "clangd", "gopls", "tsserver" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
@@ -100,3 +100,5 @@ nvim_lsp.lua_ls.setup({
 -- Lsp saga setup
 local saga = require("lspsaga")
 saga.init_lsp_saga()
+
+-- vim.lsp.set_log_level("trace")

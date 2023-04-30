@@ -10,7 +10,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { { "diagnostics", sources = { "nvim_diagnostic" } } },
-		lualine_c = { { "filename", path = 1 } },
+		lualine_c = { { "filename", path = 1 }, 'b:vista_nearest_method_or_function' },
 
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },

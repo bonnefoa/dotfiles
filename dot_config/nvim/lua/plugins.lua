@@ -19,12 +19,10 @@ require("packer").startup(function()
     use("overcache/NeoSolarized")
     use("tpope/vim-fugitive")
     use("tpope/vim-repeat")
-    use("tpope/vim-surround")
     use("tpope/vim-eunuch")
     use("freitass/todo.txt-vim")
 
     use("ntpeters/vim-better-whitespace")
-    use("scrooloose/nerdcommenter")
     use("godlygeek/tabular")
 
     use("nvim-lua/popup.nvim")
@@ -51,8 +49,6 @@ require("packer").startup(function()
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
     use("hrsh7th/cmp-nvim-lsp")
 
-    use("embear/vim-localvimrc")
-
     -- snippets
     use("saadparwaiz1/cmp_luasnip")
     use("L3MON4D3/LuaSnip") -- Snippets plugin
@@ -73,4 +69,13 @@ require("packer").startup(function()
             }
         end
     }
+
+    use("embear/vim-localvimrc")
+    use("farmergreg/vim-lastplace")
+    use("machakann/vim-sandwich")
+    use('kevinhwang91/nvim-hlslens')
+    use("lukas-reineke/indent-blankline.nvim")
+    use("liuchengxu/vista.vim")
+    use("tpope/vim-commentary")
+    use({"williamboman/mason.nvim", run = ":MasonUpdate" })
 end)
