@@ -38,6 +38,9 @@ ZSH_TAB_TITLE_PREFIX='kitty '
 
 # https://github.com/junegunn/fzf Configuration
 export FZF_COMPLETION_OPTS='+c -x'
+export FZF_DEFAULT_OPTS='-i --height=70%'
+export _ZO_FZF_OPTS='--no-sort --bind=ctrl-z:ignore --cycle --keep-right --border=sharp --height=65% --info=inline --layout=reverse --tabstop=1 --exit-0 --select-1 --preview="\command -p ls -Cp --color=always --group-directories-first {2..}" --preview-window=down,30%,sharp'
+
 _fzf_compgen_path() {
     fd --hidden --follow --exclude ".git" . "$1"
 }
