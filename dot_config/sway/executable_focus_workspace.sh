@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 
@@ -21,15 +21,9 @@ fi
 WORKSPACE_OUTPUT=$(echo "$WORKSPACES_RAW" | jq "map(select(.name  | startswith(\"$WORKSPACE:\"))) | .[0].output" -r)
 OUTPUT_RAWS=$(swaymsg -t get_outputs --raw)
 FOCUSED_OUTPUT=$(echo "$OUTPUT_RAWS" | jq 'map(select(.focused == true)) | .[0].name' -r)
-OTHER_OUTPUT=$(echo "$OUTPUT_RAWS" | jq 'map(select(.focused == false)) | .[0].name' -r)
 if [[ "$FOCUSED_OUTPUT" == "$WORKSPACE_OUTPUT" ]]; then
     # We're in the correct output, focus on workspace
     swaymsg workspace number "$WORKSPACE"
 else
-    #if [[ "$OTHER_OUTPUT" != "null" ]]; then
-        ## We want to swap, get workspace on the other output
-        #OTHER_WORKSPACE=$(echo "$WORKSPACES_RAW" | jq "map(select(.visible == true and .output == \"$FOCUSED_OUTPUT\")) | .[0].num" -r)
-        #swaymsg "[workspace=${OTHER_WORKSPACE}:]" move workspace to output "$OTHER_OUTPUT"
-    #fi
     swaymsg "[workspace=${WORKSPACE}:]" move workspace to output "$FOCUSED_OUTPUT"
 fi
