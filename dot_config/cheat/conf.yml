@@ -7,7 +7,7 @@ formatter: terminal16m
 
 cheatpaths:
   - name: datadog
-    path: ~/dd/cheatsheets-infra
+    path: ~/.config/cheat/cheatsheets/datadog
     tags: [ datadog ]
     readonly: false
 
