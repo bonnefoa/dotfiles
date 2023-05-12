@@ -15,7 +15,7 @@ export VISUAL=nvim
 
 export LESS=" -S -R"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$PATH"
+export PATH="$HOME/.local/bin:$HOME/local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$PATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
