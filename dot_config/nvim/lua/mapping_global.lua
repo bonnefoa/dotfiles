@@ -7,6 +7,7 @@ map("<leader>fG", "Grep_from_search()")
 map("<leader>ft", "require('telescope.builtin').tags()")
 map("<leader>fb", "require('telescope.builtin').buffers()")
 map("<leader>fB", "require('telescope.builtin').oldfiles()")
+map("<leader>f/", "require('telescope.builtin').search_history()")
 
 set_keymap("<C-h>", "<C-w>h", "")
 set_keymap("<C-j>", "<C-w>j", "")
