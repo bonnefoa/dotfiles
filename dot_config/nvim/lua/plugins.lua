@@ -50,9 +50,8 @@ require("packer").startup(function()
 
     -- snippets
     use("saadparwaiz1/cmp_luasnip")
-    use("L3MON4D3/LuaSnip") -- Snippets plugin
+    use("L3MON4D3/LuaSnip")
     use("rafamadriz/friendly-snippets")
-    use('mbbill/undotree')
 
     use("fatih/vim-go")
     use("leafgarland/typescript-vim")
@@ -73,8 +72,9 @@ require("packer").startup(function()
     use("embear/vim-localvimrc")
     use("farmergreg/vim-lastplace")
     use("machakann/vim-sandwich")
-    -- use("lukas-reineke/indent-blankline.nvim")
     use("liuchengxu/vista.vim")
     use("tpope/vim-commentary")
+
     use({"williamboman/mason.nvim", run = ":MasonUpdate" })
+    use("williamboman/mason-lspconfig")
 end)
