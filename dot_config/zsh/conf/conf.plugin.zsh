@@ -24,6 +24,7 @@ export LANG="en_US.utf8"
 export LC_ALL="en_US.UTF-8"
 export AWS_SESSION_TTL=24h
 export AWS_ASSUME_ROLE_TTL=1h
+export SYSTEMD_DEBUGGER=cgdb
 
 # Vim mode timeout
 export KEYTIMEOUT=1
