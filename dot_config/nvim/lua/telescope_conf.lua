@@ -15,6 +15,7 @@ require("telescope").setup({
         },
     },
 	defaults = {
+        initial_mode = "insert",
 		mappings = {
 			n = {
 				["q"] = actions.close,
