@@ -1,4 +1,4 @@
-export PGHOST=localhost
+export PGHOST=/tmp
 export PGUSER=postgres
 
 function pg_functions() {
