@@ -23,7 +23,6 @@ antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/docker
 antigen bundle bonnefoa/cdfile@main
 
-antigen bundle "$HOME/.config/zsh/psql"
 antigen bundle "$HOME/.config/zsh/completion"
 antigen bundle "$HOME/.config/zsh/z"
 

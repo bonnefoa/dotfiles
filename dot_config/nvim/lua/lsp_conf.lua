@@ -84,7 +84,6 @@ require'lspconfig'.pylsp.setup({
                 pyls_isort = { enabled = true },
                 pylsp_mypy = { enabled = true },
                 pycodestyle = {
-                    ignore = {'C0114'},
                     maxLineLength = 120
                 },
             },
