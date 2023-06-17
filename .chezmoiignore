@@ -1,4 +1,5 @@
 {{- if ne .chezmoi.hostname "sana" }}
+.gitconfig
 .config/kitty
 .config/Yubico/u2f_keys
 .config/pulse
