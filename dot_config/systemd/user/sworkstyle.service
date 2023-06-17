@@ -3,7 +3,7 @@ Description=Automatically rename sway workspaces
 
 [Service]
 Type=simple
-ExecStart=%h/.cargo/bin/sworkstyle
+ExecStart=/usr/bin/sworkstyle
 Restart=always
 RestartSec=60
 
