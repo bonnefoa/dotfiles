@@ -1,4 +1,4 @@
-{{- if ne .chezmoi.hostname "sana" }}
+{{- if and (ne .chezmoi.hostname "sana") (ne .chezmoi.hostname "ai") }}
 .gitconfig
 .config/kitty
 .config/Yubico/u2f_keys
