@@ -13,6 +13,7 @@ alias vim=nvim
 export EDITOR=nvim
 export VISUAL=nvim
 
+export PAGER="less"
 export LESS=" -S -R"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export PATH="$HOME/.local/bin:$HOME/local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$PATH"
