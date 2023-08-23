@@ -34,7 +34,6 @@ vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-vim.o.pastetoggle = "<F10>"
 vim.o.termguicolors = true
 
 -- Set completeopt to have a better completion experience
