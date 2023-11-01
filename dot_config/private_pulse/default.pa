@@ -33,7 +33,7 @@ load-module module-augment-properties
 
 ### Should be after module-*-restore but before module-*-detect
 load-module module-switch-on-port-available
-load-module module-switch-on-connect
+load-module module-switch-on-connect blacklist="iec958-stereo|Blue_Microphones"
 
 ### Load audio drivers statically
 ### (it's probably better to not load these drivers manually, but instead
@@ -146,4 +146,8 @@ load-module module-filter-apply
 
 .ifexists alsa_card.usb-CalDigit__Inc._CalDigit_Thunderbolt_3_Audio-00
 set-card-profile alsa_card.usb-CalDigit__Inc._CalDigit_Thunderbolt_3_Audio-00 off
+.endif
+
+.ifexists alsa_output.pci-0000_0b_00.1.hdmi-stereo-extra2
+set-default-sink alsa_output.pci-0000_0b_00.1.hdmi-stereo-extra2
 .endif
