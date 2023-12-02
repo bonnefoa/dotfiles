@@ -41,13 +41,12 @@ focus_wrapping no
 for_window [class="^firefox$"] inhibit_idle fullscreen
 for_window [class="mpv"] inhibit_idle fullscreen
 
-for_window [app_id="^firefox$"] inhibit_idle fullscreen
-for_window [app_id="mpv"] inhibit_idle fullscreen
-
 assign [app_id="firefox"] workspace number 9
 assign [class="firefox"] workspace number 9
 assign [app_id="Chromium"] workspace number 8
 assign [class="Chromium"] workspace number 8
+assign [app_id="chromium"] workspace number 8
+assign [class="chromium"] workspace number 8
 
 assign [app_id="IRC"] workspace number 7
 assign [app_id="TODO"] workspace number 6
