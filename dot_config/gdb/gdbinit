@@ -6,3 +6,4 @@ handle all nostop pass
 set follow-fork-mode child
 set print array on
 set pagination off
+set height 0
