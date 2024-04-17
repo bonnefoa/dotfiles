@@ -71,7 +71,6 @@ require("packer").startup(function()
 
     use("embear/vim-localvimrc")
     use("farmergreg/vim-lastplace")
-    use("machakann/vim-sandwich")
     use("liuchengxu/vista.vim")
 
     use("kylechui/nvim-surround")
