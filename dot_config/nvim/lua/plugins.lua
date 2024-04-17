@@ -73,6 +73,8 @@ require("packer").startup(function()
     use("farmergreg/vim-lastplace")
     use("machakann/vim-sandwich")
     use("liuchengxu/vista.vim")
+
+    use("kylechui/nvim-surround")
     use("tpope/vim-commentary")
 
     use({"williamboman/mason.nvim", run = ":MasonUpdate" })
