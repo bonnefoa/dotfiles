@@ -51,7 +51,7 @@ vim.cmd([[colorscheme NeoSolarized]])
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
-vim.g.strip_whitespace_on_save = true
+vim.g.strip_whitespace_on_save = false
 vim.g.strip_whitespace_confirm = false
 
 vim.g.gutentags_cache_dir = "~/.local/share/nvim/tags"
