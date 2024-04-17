@@ -22,6 +22,8 @@ require("packer").startup(function()
     use("tpope/vim-eunuch")
     use("freitass/todo.txt-vim")
 
+    use("sindrets/diffview.nvim")
+
     use("ntpeters/vim-better-whitespace")
     use("godlygeek/tabular")
 
@@ -49,9 +51,12 @@ require("packer").startup(function()
     use("hrsh7th/cmp-nvim-lsp")
 
     -- snippets
-    use("saadparwaiz1/cmp_luasnip")
     use("L3MON4D3/LuaSnip")
-    use("rafamadriz/friendly-snippets")
+    use('SirVer/ultisnips')
+    use('prabirshrestha/async.vim')
+    use('prabirshrestha/vim-lsp')
+    use('thomasfaingnaert/vim-lsp-snippets')
+    use('thomasfaingnaert/vim-lsp-ultisnips')
 
     use("fatih/vim-go")
     use("leafgarland/typescript-vim")
