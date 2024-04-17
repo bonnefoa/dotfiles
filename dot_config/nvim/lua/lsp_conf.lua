@@ -43,35 +43,48 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local nvim_lsp = require("lspconfig")
+local lspconfig = require("lspconfig")
 
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
 local servers = { "gopls", "tsserver" }
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup({
+    lspconfig[lsp].setup({
         capabilities = capabilities,
     })
 end
 
-nvim_lsp.bashls.setup({
+lspconfig.ccls.setup({
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    cache = {
+        directory = vim.fs.normalize "~/.cache/ccls",
+    },
+    clang = {
+      extraArgs = { "-Wshadow-all" } ;
+    };
+  },
+  capabilities = capabilities
+})
+
+lspconfig.bashls.setup({
     capabilities = capabilities,
     filetypes = { "sh", "zsh" },
 })
 
-nvim_lsp.clangd.setup{
-    capabilities = capabilities,
-    cmd = {
-        "clangd",
-        "--background-index",
-        "--pch-storage=memory",
-        "--clang-tidy",
-        "--suggest-missing-includes",
-        "--all-scopes-completion",
-        "--pretty",
-        "--header-insertion=never"
-    },
-}
+-- lspconfig.clangd.setup{
+--     capabilities = capabilities,
+--     cmd = {
+--         "clangd",
+--         "--background-index",
+--         "--pch-storage=memory",
+--         "--clang-tidy",
+--         "--suggest-missing-includes",
+--         "--all-scopes-completion",
+--         "--pretty",
+--         "--header-insertion=never"
+--     },
+-- }
 
 require'lspconfig'.pylsp.setup({
     settings = {
@@ -100,7 +113,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-nvim_lsp.lua_ls.setup({
+lspconfig.lua_ls.setup({
     capabilities = capabilities,
     settings = {
         Lua = {
