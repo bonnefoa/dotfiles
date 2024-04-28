@@ -42,21 +42,19 @@ require("packer").startup(function()
 
     use("ludovicchabant/vim-gutentags")
 
-    use("mfussenegger/nvim-lint")
-
     use({"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}})
 
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
-    use("hrsh7th/nvim-cmp") -- Autocompletion plugin
     use("hrsh7th/cmp-nvim-lsp")
 
+    use({"hrsh7th/nvim-cmp"}) -- Autocompletion plugin
     -- snippets
-    use("L3MON4D3/LuaSnip")
-    use('SirVer/ultisnips')
+    use({'L3MON4D3/LuaSnip'})
+    use("rafamadriz/friendly-snippets")
+    use("saadparwaiz1/cmp_luasnip")
+
     use('prabirshrestha/async.vim')
     use('prabirshrestha/vim-lsp')
-    use('thomasfaingnaert/vim-lsp-snippets')
-    use('thomasfaingnaert/vim-lsp-ultisnips')
 
     use("fatih/vim-go")
     use("leafgarland/typescript-vim")
@@ -74,7 +72,6 @@ require("packer").startup(function()
         end
     }
 
-    use("embear/vim-localvimrc")
     use("farmergreg/vim-lastplace")
     use("liuchengxu/vista.vim")
 
