@@ -44,6 +44,7 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.completeopt = "menuone,noinsert,noselect"
 -- Avoid showing extra messages when using completion
 vim.o.shortmess = vim.o.shortmess .. "c"
+vim.o.wrap = false
 
 vim.cmd([[colorscheme NeoSolarized]])
 
