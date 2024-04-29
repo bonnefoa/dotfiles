@@ -4,9 +4,13 @@ require("nvim-treesitter.configs").setup({
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "python" },
     sync_install = true,
     auto_install = true,
-    ignore_install = {},
+    ignore_install = { "diff" },
+    additional_vim_regex_highlighting = false,
 	highlight = {
 		enable = true, -- false will disable the whole extension
+	},
+	indent = {
+		enable = true,
 	},
 	incremental_selection = {
 		enable = true,
@@ -16,9 +20,6 @@ require("nvim-treesitter.configs").setup({
 			scope_incremental = "grc",
 			node_decremental = "grm",
 		},
-	},
-	indent = {
-		enable = true,
 	},
 	textobjects = {
 		select = {
