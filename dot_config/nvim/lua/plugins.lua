@@ -46,6 +46,8 @@ require("packer").startup(function()
 
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
     use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    
 
     use({"hrsh7th/nvim-cmp"}) -- Autocompletion plugin
     -- snippets
