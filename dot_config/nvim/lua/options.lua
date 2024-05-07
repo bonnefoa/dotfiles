@@ -16,6 +16,8 @@ vim.o.updatetime = 250
 -- Always draw sign column
 vim.wo.signcolumn = "no"
 
+vim.o.spell=true
+
 -- Don't redraw during macro apply
 vim.o.lazyredraw = true
 --Match longest first in autocompletion
