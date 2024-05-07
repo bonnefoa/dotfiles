@@ -1,2 +1,5 @@
 --smart-case
+--type-add
+dump:*.dump
 -Tsvg
+-Tdump
