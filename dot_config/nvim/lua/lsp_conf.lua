@@ -54,37 +54,37 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-lspconfig.ccls.setup({
-  init_options = {
-    compilationDatabaseDirectory = "build";
-    cache = {
-        directory = vim.fs.normalize "~/.cache/ccls",
-    },
-    clang = {
-      extraArgs = { "-Wshadow-all" } ;
-    };
-  },
-  capabilities = capabilities
-})
+-- lspconfig.ccls.setup({
+--   init_options = {
+--     compilationDatabaseDirectory = "build";
+--     cache = {
+--         directory = vim.fs.normalize "~/.cache/ccls",
+--     },
+--     clang = {
+--       extraArgs = { "-Wshadow-all" } ;
+--     };
+--   },
+--   capabilities = capabilities
+-- })
 
 lspconfig.bashls.setup({
     capabilities = capabilities,
     filetypes = { "sh", "zsh" },
 })
 
--- lspconfig.clangd.setup{
---     capabilities = capabilities,
---     cmd = {
---         "clangd",
---         "--background-index",
---         "--pch-storage=memory",
---         "--clang-tidy",
---         "--suggest-missing-includes",
---         "--all-scopes-completion",
---         "--pretty",
---         "--header-insertion=never"
---     },
--- }
+lspconfig.clangd.setup{
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--pch-storage=memory",
+        "--clang-tidy",
+        "--suggest-missing-includes",
+        "--all-scopes-completion",
+        "--pretty",
+        "--header-insertion=never"
+    },
+}
 
 require'lspconfig'.pylsp.setup({
     settings = {
