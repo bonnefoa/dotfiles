@@ -3,3 +3,5 @@
 	name = Anthonin Bonnefoy
 [init]
 	defaultBranch = main
+[merge]
+    tool = vimdiff
