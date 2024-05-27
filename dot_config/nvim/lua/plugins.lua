@@ -49,8 +49,6 @@ require("packer").startup(function()
     use("hrsh7th/cmp-buffer")
     use('VonHeikemen/lsp-zero.nvim')
 
-    -- For async :Make command
-    -- use('tpope/vim-dispatch')
     use('neomake/neomake')
 
     use({"hrsh7th/nvim-cmp"}) -- Autocompletion plugin
