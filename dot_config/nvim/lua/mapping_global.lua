@@ -7,6 +7,8 @@ map("<leader>fG", "Grep_from_search()")
 map("<leader>ft", "require('telescope.builtin').tags()")
 map("<leader>fr", "require('telescope.builtin').registers()")
 map("<leader>fb", "require('telescope.builtin').buffers()")
+map("<leader>fd", "require('telescope.builtin').diagnostics()")
+map("<leader>fq", "require('telescope.builtin').quickfix()")
 map("<leader>fB", "require('telescope.builtin').oldfiles()")
 map("<leader>f/", "require('telescope.builtin').search_history()")
 
