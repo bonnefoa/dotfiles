@@ -41,36 +41,41 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+
 local capabilities = lsp_status.capabilities
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local lspconfig = require("lspconfig")
 
+require('lsp-zero')
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
-local servers = { "gopls", "tsserver" }
+local servers = { "tsserver" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         capabilities = capabilities,
     })
 end
 
--- lspconfig.ccls.setup({
---   init_options = {
---     compilationDatabaseDirectory = "build";
---     cache = {
---         directory = vim.fs.normalize "~/.cache/ccls",
---     },
---     clang = {
---       extraArgs = { "-Wshadow-all" } ;
---     };
---   },
---   capabilities = capabilities
--- })
-
 lspconfig.bashls.setup({
     capabilities = capabilities,
     filetypes = { "sh", "zsh" },
 })
+
+lspconfig.gopls.setup{
+    capabilities = capabilities,
+    cmd = {"gopls", "--remote=auto"},
+    settings = {
+        gopls = {
+            -- gofumpt = true,
+            staticcheck = true,
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true
+            }
+        }
+    }
+}
 
 lspconfig.clangd.setup{
     capabilities = capabilities,
@@ -79,14 +84,13 @@ lspconfig.clangd.setup{
         "--background-index",
         "--pch-storage=memory",
         "--clang-tidy",
-        "--suggest-missing-includes",
         "--all-scopes-completion",
         "--pretty",
         "--header-insertion=never"
     },
 }
 
-require'lspconfig'.pylsp.setup({
+lspconfig.pylsp.setup({
     settings = {
         pylsp = {
             plugins = {
