@@ -47,7 +47,11 @@ require("packer").startup(function()
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
-    
+    use('VonHeikemen/lsp-zero.nvim')
+
+    -- For async :Make command
+    -- use('tpope/vim-dispatch')
+    use('neomake/neomake')
 
     use({"hrsh7th/nvim-cmp"}) -- Autocompletion plugin
     -- snippets
@@ -59,6 +63,7 @@ require("packer").startup(function()
     use('prabirshrestha/vim-lsp')
 
     use("fatih/vim-go")
+    use("AndrewRadev/splitjoin.vim")
     use("leafgarland/typescript-vim")
     use("neoclide/vim-jsx-improve")
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
