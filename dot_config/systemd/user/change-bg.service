@@ -2,7 +2,7 @@
 Description=Set a random background image
 
 [Service]
-Type=forking
+Type=simple
 ExecStart=%h/.local/bin/random_wallpaper.sh
 Restart=always
 RestartSec=300
