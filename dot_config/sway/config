@@ -29,9 +29,10 @@ bindswitch --reload --locked lid:off output $laptop enable
 
 ### Output configuration
 #
-output * bg $(find ~/wallpaper -maxdepth 1 | shuf -n1) fit #000000
+
 # Main screen
 output DP-1 pos 0 0
+output DP-2 pos 0 0
 # Laptop screen
 output eDP-1 pos 2560 0 scale 2
 focus_wrapping no
