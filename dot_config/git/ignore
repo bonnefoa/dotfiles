@@ -1,2 +1,5 @@
 *.cache
 *.patch
+*.rpyc
+*.pyc
+tags

@@ -9,7 +9,7 @@ export SWWW_TRANSITION_DURATION=2
 export SWWW_TRANSITION_STEP=220
 
 # This controls (in seconds) when to switch to the next image
-INTERVAL=120
+INTERVAL=300
 
 outputs=$(swww query | awk '{print $1}' | sed 's/://')
 # wallpaper=$(find $WALLPAPER_DIR -maxdepth 1 -type f | shuf -n1 | sed 's/(/\\\(/g' | sed 's/)/\\\)/g' | sed "s/'/\\\'/g")
