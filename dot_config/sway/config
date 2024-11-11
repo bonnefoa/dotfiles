@@ -64,6 +64,12 @@ input * {
     xkb_numlock enable
 }
 
+input 2:10:TPPS/2_Elan_TrackPoint {
+    accel_profile adaptive
+    pointer_accel 0.8
+}
+
+
 input 5426:133:Razer_Razer_Basilisk_V2 {
     natural_scroll disabled
 }
