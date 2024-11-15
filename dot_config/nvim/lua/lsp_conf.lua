@@ -48,8 +48,8 @@ local lspconfig = require("lspconfig")
 
 require('lsp-zero')
 
---local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
-local servers = { "tsserver" }
+--local servers = { "rust_analyzer", "pyright", "gopls" }
+local servers = { }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         capabilities = capabilities,
@@ -82,11 +82,16 @@ lspconfig.clangd.setup{
     cmd = {
         "clangd",
         "--background-index",
-        "--pch-storage=memory",
+
+        "--pretty",
+        "--header-insertion=never",
+        "-j=4",
+
         "--clang-tidy",
         "--all-scopes-completion",
-        "--pretty",
-        "--header-insertion=never"
+        "--cross-file-rename",
+        "--completion-style=detailed",
+        "--pch-storage=memory",
     },
 }
 

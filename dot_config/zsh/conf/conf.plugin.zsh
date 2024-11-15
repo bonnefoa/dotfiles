@@ -4,8 +4,7 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-alias ls='exa'
-alias la='exa -alh -snew'
+alias la='ls -Alhtr --color'
 alias grep='grep --color '
 alias vim=nvim
 
