@@ -15,7 +15,7 @@ export VISUAL=nvim
 export PAGER="less"
 export LESS=" -S -R"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export PATH="$HOME/.local/bin:$HOME/local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$PATH"
+export PATH="$HOME/.local/bin:$HOME/local/bin:$HOME/.cargo/bin:$HOME/virtual/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$HOME/perl5/bin/:$PATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
@@ -26,6 +26,8 @@ export LC_CTYPE="en_US.UTF-8"
 export AWS_SESSION_TTL=24h
 export AWS_ASSUME_ROLE_TTL=1h
 export SYSTEMD_DEBUGGER=cgdb
+export PGDATA=~/temp/pg_data
+export PERL5LIB=$PERL5LIB:~/dd/postgres/src/test/perl/
 
 # Vim mode timeout
 export KEYTIMEOUT=1
