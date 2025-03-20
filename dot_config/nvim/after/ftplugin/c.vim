@@ -19,5 +19,5 @@ let g:neomake_c_ninja_maker = {
 
 
 let g:neomake_c_enabled_makers = ['ninja']
-let g:neomake_open_list = 2
+" let g:neomake_open_list = 2
 call neomake#configure#automake('w')
