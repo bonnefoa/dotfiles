@@ -45,15 +45,24 @@ require("packer").startup(function()
     use({"nvim-lualine/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}})
 
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
     use('VonHeikemen/lsp-zero.nvim')
 
     use('neomake/neomake')
 
-    use({"hrsh7th/nvim-cmp"}) -- Autocompletion plugin
+    -- Autocompletion plugin
+    use("hrsh7th/nvim-cmp")
+    use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('hrsh7th/cmp-nvim-lsp-signature-help')
+    use('hrsh7th/cmp-nvim-lua')
+    use('hrsh7th/cmp-path')
+    use('hrsh7th/cmp-vsnip')
+    use('hrsh7th/vim-vsnip')
+    use('mrcjkb/rustaceanvim')
+    use('mfussenegger/nvim-dap')
+
     -- snippets
-    use({'L3MON4D3/LuaSnip'})
+    use('L3MON4D3/LuaSnip')
     use("rafamadriz/friendly-snippets")
     use("saadparwaiz1/cmp_luasnip")
 

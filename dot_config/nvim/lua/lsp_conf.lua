@@ -49,6 +49,7 @@ local lspconfig = require("lspconfig")
 require('lsp-zero')
 
 --local servers = { "clangd", "rust_analyzer", "pyright", "gopls" }
+--local servers = { "rust_analyzer" }
 local servers = { }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
