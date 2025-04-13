@@ -16,3 +16,9 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+
+vim.g.rustaceanvim = {
+    tools = {
+        test_executor = 'background',
+    },
+}

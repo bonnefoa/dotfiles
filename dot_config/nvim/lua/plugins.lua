@@ -79,11 +79,6 @@ require("packer").startup(function()
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                height = 5,
-            }
-        end
     }
 
     use("farmergreg/vim-lastplace")
