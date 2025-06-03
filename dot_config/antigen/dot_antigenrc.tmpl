@@ -1,5 +1,8 @@
-[[ -d "$HOME/.config/zsh/mac" ]] && antigen bundle "$HOME/.config/zsh/mac"
+{{ if eq .chezmoi.os "linux" -}}
 [[ -d "$HOME/.config/zsh/linux" ]] && antigen bundle "$HOME/.config/zsh/linux"
+{{ else if eq .chezmoi.os "darwin" -}}
+[[ -d "$HOME/.config/zsh/mac" ]] && antigen bundle "$HOME/.config/zsh/mac"
+{{ end -}}
 
 antigen bundle robbyrussell/oh-my-zsh lib/git.zsh
 antigen bundle robbyrussell/oh-my-zsh lib/theme-and-appearance.zsh
