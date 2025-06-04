@@ -1,3 +1,15 @@
+function grep_from_search()
+	local opts = { quote = true }
+	local helpers = require("telescope-live-grep-args.helpers")
+	local value = vim.fn.getreg("/")
+	value = vim.trim(value)
+	value = helpers.quote(value, opts)
+	value = value .. " "
+	opts["default_text"] = value
+
+	require("telescope").extensions.live_grep_args.live_grep_args(opts)
+end
+
 return {
 	{
 		"nvim-telescope/telescope.nvim",
@@ -25,10 +37,16 @@ return {
 					end)
 				end,
 			},
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+				-- This will not install any breaking changes.
+				-- For major updates, this must be adjusted manually.
+				version = "^1.0.0",
+			},
 		},
 		keys = {
 			{ "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find files" },
-			{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Live grep" },
+			{ "<leader>fg", ":lua grep_from_search()<CR>", desc = "Live grep args" },
 			{ "<leader>ft", "<Cmd>Telescope tags<CR>", desc = "Tags" },
 			{ "<leader>fr", "<Cmd>Telescope registers<CR>", desc = "Registers" },
 			{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Buffers" },
@@ -38,15 +56,28 @@ return {
 			{ "<leader>f/", "<Cmd>Telescope search_history<CR>", desc = "Search history" },
 			{ "<leader>fG", "<Cmd>Telescope grep_string<CR>", desc = "Grep string" },
 		},
-		opts = function()
+		config = function()
+			local telescope = require("telescope")
+
 			local actions = require("telescope.actions")
-			return {
+			local lga_actions = require("telescope-live-grep-args.actions")
+
+			telescope.setup({
 				extensions = {
 					fzf = {
 						fuzzy = true,
 						override_generic_sorter = true,
 						override_file_sorter = true,
 						case_mode = "smart_case",
+					},
+					live_grep_args = {
+						auto_quoting = true,
+						mappings = {
+							i = {
+								["<C-i>"] = lga_actions.quote_prompt(),
+								["<C-space>"] = lga_actions.to_fuzzy_refine,
+							},
+						},
 					},
 				},
 				pickers = {
@@ -69,7 +100,9 @@ return {
 					},
 				},
 				mappings = {},
-			}
+			})
+
+			telescope.load_extension("live_grep_args")
 		end,
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
