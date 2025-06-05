@@ -46,7 +46,6 @@ return {
 		},
 		keys = {
 			{ "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find files" },
-			{ "<leader>fg", ":lua grep_from_search()<CR>", desc = "Live grep args" },
 			{ "<leader>ft", "<Cmd>Telescope tags<CR>", desc = "Tags" },
 			{ "<leader>fr", "<Cmd>Telescope registers<CR>", desc = "Registers" },
 			{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Buffers" },
@@ -54,7 +53,8 @@ return {
 			{ "<leader>fq", "<Cmd>Telescope quickfix<CR>", desc = "Quickfix" },
 			{ "<leader>fB", "<Cmd>Telescope oldfiles<CR>", desc = "Oldfiles" },
 			{ "<leader>f/", "<Cmd>Telescope search_history<CR>", desc = "Search history" },
-			{ "<leader>fG", "<Cmd>Telescope grep_string<CR>", desc = "Grep string" },
+			{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Live Grep" },
+			{ "<leader>fG", ":lua grep_from_search()<CR>", desc = "Grep From Search" },
 		},
 		config = function()
 			local telescope = require("telescope")
