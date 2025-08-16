@@ -8,7 +8,7 @@ return {
 			"mason.nvim",
 			{ "williamboman/mason-lspconfig.nvim", config = function() end },
 		},
-		ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "rs" },
+		ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "rust", "go" },
 		keys = {
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
 			{ "[d", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
@@ -41,10 +41,7 @@ return {
 				},
 				severity_sort = true,
 			},
-			inlay_hints = {
-				enabled = true,
-				exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
-			},
+      inlay_hints = { enabled = false },
 			capabilities = {
 				workspace = {
 					fileOperations = {
@@ -54,7 +51,6 @@ return {
 				},
 			},
 			servers = {
-				rust_analyzer = { enabled = true },
 				clangd = {
 					keys = {
 						{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -91,6 +87,18 @@ return {
 						clangdFileStatus = true,
 					},
 				},
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              procMacro = { enable = true },
+              cargo = { allFeatures = true },
+              checkOnSave = {
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              },
+            },
+          },
+        },
 			},
 		},
 	},
@@ -113,7 +121,6 @@ return {
 			"pyright",
 			"pylsp",
 			"sqlls",
-			"rust_analyzer",
 			"tflint",
 			"yamlls",
 		},
