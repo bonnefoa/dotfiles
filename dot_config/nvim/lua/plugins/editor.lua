@@ -52,47 +52,6 @@ return {
 	"nvim-lua/popup.nvim",
 
 	{
-		"stevearc/conform.nvim",
-		dependencies = { "mason.nvim" },
-		event = { "BufWritePre" },
-		cmd = "ConformInfo",
-		keys = {
-			{
-				"<leader>cF",
-				function()
-					require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
-				end,
-				mode = { "n", "v" },
-				desc = "Format Injected Langs",
-			},
-		},
-		opts = function()
-			return {
-				notify_no_formatters = true,
-				format_on_save = {
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
-				default_format_opts = {
-					timeout_ms = 3000,
-					async = false,
-					quiet = false,
-					lsp_format = "fallback",
-				},
-				formatters_by_ft = {
-					lua = { "stylua" },
-					rust = { "rustfmt", lsp_format = "fallback" },
-					python = { "black" },
-					sh = { "shfmt" },
-				},
-				formatters = {
-					injected = { options = { ignore_errors = true } },
-				},
-			}
-		end,
-	},
-
-	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
