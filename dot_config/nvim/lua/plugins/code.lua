@@ -3,13 +3,16 @@ return {
 	"neomake/neomake",
 	{
 		"mrcjkb/rustaceanvim",
-		config = function() end,
+    lazy = false,
+		config = function()
+    end,
 		opts = {
 			server = {
 				on_attach = function(_, bufnr)
 					vim.keymap.set("n", "<leader>cR", function()
 						vim.cmd.RustLsp("codeAction")
 					end, { desc = "Code Action", buffer = bufnr })
+          vim.lsp.inlay_hint.enable(false)
 				end,
 				default_settings = {
 					["rust-analyzer"] = {
