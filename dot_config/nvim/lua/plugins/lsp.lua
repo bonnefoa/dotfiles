@@ -13,6 +13,7 @@ return {
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
 			{ "[d", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
 			{ "]d", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
+			{ "ca", vim.lsp.buf.code_action, desc = "Code action" },
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
 			{ "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
 			{ "gr", vim.lsp.buf.references, desc = "References", nowait = true },

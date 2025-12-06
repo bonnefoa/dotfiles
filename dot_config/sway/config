@@ -42,12 +42,8 @@ focus_wrapping no
 for_window [class="^firefox$"] inhibit_idle fullscreen
 for_window [class="mpv"] inhibit_idle fullscreen
 
-assign [app_id="firefox"] workspace number 9
-assign [class="firefox"] workspace number 9
-assign [app_id="Chromium"] workspace number 8
-assign [class="Chromium"] workspace number 8
-assign [app_id="chromium"] workspace number 8
-assign [class="chromium"] workspace number 8
+assign [app_id="firefox-base"] workspace number 9
+assign [app_id="firefox-Google"] workspace number 8
 
 assign [app_id="IRC"] workspace number 7
 assign [app_id="TODO"] workspace number 6
@@ -183,11 +179,11 @@ include /etc/sway/config.d/*
 # exec MOZ_ENABLE_WAYLAND=1 firefox
 # exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 
-exec firefox
-exec chromium
+exec firefox --name firefox-base --no-remote -P base
+exec firefox --name firefox-Google --no-remote -P Google
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
 exec kitty
 exec SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket keepassxc
-exec kitty --class TODO zsh -c "vim notes/todo.txt; $SHELL"
-exec kitty --class IRC zsh -c "SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket .local/bin/wait_and_connect.sh; $SHELL"
+# exec kitty --class TODO zsh -c "vim notes/todo.txt; $SHELL"
+# exec kitty --class IRC zsh -c "SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket .local/bin/wait_and_connect.sh; $SHELL"
 exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
