@@ -140,3 +140,4 @@ vim.g.gutentags_ctags_exclude = {
 vim.g.localvimrc_ask = 0
 vim.g.c_syntax_for_h = true
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+vim.g.editorconfig = false
