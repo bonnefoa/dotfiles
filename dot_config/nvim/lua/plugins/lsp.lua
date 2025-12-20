@@ -8,7 +8,7 @@ return {
 			"mason.nvim",
 			{ "williamboman/mason-lspconfig.nvim", config = function() end },
 		},
-		ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "rust", "go" },
+		ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "rust", "go", "python" },
 		keys = {
 			{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
 			{ "[d", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
