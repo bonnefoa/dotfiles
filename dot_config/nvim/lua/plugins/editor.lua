@@ -162,7 +162,13 @@ return {
 	},
 
 	"farmergreg/vim-lastplace",
-	"kylechui/nvim-surround",
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({ })
+    end
+  },
 
 	{
 		"ray-x/go.nvim",
