@@ -4,7 +4,7 @@ function grep_from_search()
 	local value = vim.fn.getreg("/")
 	value = vim.trim(value)
 	value = helpers.quote(value, opts)
-	value = value .. " "
+	value = value .. ".*"
 	opts["default_text"] = value
 
 	require("telescope").extensions.live_grep_args.live_grep_args(opts)
