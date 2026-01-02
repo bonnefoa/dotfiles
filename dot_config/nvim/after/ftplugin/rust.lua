@@ -11,6 +11,8 @@ vim.keymap.set("n", "]D", function() vim.cmd.RustLsp('relatedDiagnostics') end,
   {desc="Related Diagnostic"})
 vim.keymap.set("n", "J", function() vim.cmd.RustLsp('joinLines') end,
   {desc="Join Lines"})
+vim.keymap.set("n", "gk", function() vim.cmd.RustLsp('openDocs') end,
+  {desc="Open Docs"})
 
 vim.g.rustaceanvim = {
     tools = {
