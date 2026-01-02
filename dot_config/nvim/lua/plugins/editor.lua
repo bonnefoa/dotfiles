@@ -5,6 +5,7 @@ return {
 	"tpope/vim-eunuch",
 	"tpope/vim-commentary",
 	"ludovicchabant/vim-gutentags",
+	"freitass/todo.txt-vim",
 
 	{
 		"stevearc/conform.nvim",
