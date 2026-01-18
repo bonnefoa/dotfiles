@@ -1,0 +1,22 @@
+getantidote/use-omz
+robbyrussell/oh-my-zsh path:lib/git.zsh
+robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
+
+"$HOME/.config/zsh/conf"
+"$HOME/.config/zsh/linux"
+
+robbyrussell/oh-my-zsh path:plugins/fzf
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/docker
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+twpayne/chezmoi path:completions/chezmoi.zsh
+
+zsh-users/zsh-completions
+trystan2k/zsh-tab-title
+bonnefoa/cdfile
+
+"$HOME/.config/zsh/psql"
+"$HOME/.config/zsh/completion"
+"$HOME/.config/zsh/z"
+"$HOME/.config/zsh/theme"

@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-yay -Syu ripgrep antigen autoconf autmake bemenu bemenu-wayland cgdb chromium chrony clang ctags exa feh firefox go gzip htop iproute2 jq kitty lsof lua meson ninja neovim noto-fonts-cjk noto-fonts-emoji noto-fonts npm openssh pavucontrol pulseaudio sudo strace zoxide-git swww
+yay -Syu ripgrep zsh-antidote meson autoconf bemenu bemenu-wayland chrony clang ctags eza feh firefox go gzip htop iproute2 jq kitty lsof lua meson ninja neovim noto-fonts-cjk noto-fonts-emoji noto-fonts npm openssh pavucontrol pulseaudio-bluetooth pulseaudio sudo strace zoxide-git swww
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 brew install ripgrep

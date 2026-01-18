@@ -1,13 +1,24 @@
 #zmodload zsh/zprof
-#ANTIGEN_LOG=/tmp/antigen_log
 typeset -g ZSH_CACHE_DIR
 ZSH_CACHE_DIR="$HOME/.local/share/zsh/cache"
 
-[[ ! -f /opt/homebrew/share/antigen/antigen.zsh ]] || source /opt/homebrew/share/antigen/antigen.zsh
-[[ ! -f /usr/share/zsh/share/antigen.zsh ]] || source /usr/share/zsh/share/antigen.zsh
-[[ ! -f /usr/local/share/antigen/antigen.zsh ]] || source /usr/local/share/antigen/antigen.zsh
+# Load antidote
+[[ -f /usr/share/zsh-antidote/antidote.zsh ]] && source /usr/share/zsh-antidote/antidote.zsh
+[[ -f $HOME/dd/antidote/antidote.zsh ]] && source $HOME/dd/antidote/antidote.zsh
 
-antigen init "$HOME/.config/antigen/.antigenrc"
+# Load plugins from file
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+
+# Load kubectl plugins
+if whence kubectl > /dev/null || [[ -f /opt/homebrew/bin/kubectl ]]; then
+    antidote bundle robbyrussell/oh-my-zsh path:plugins/kubectl
+    antidote bundle jonmosco/kube-ps1
+fi
+
+# Load mac plugin
+if [[ -d "$HOME/.config/zsh/mac_last" ]]; then
+  antidote bundle "$HOME/.config/zsh/mac_last"
+fi
 
 . "$HOME/.local/share/lscolors.sh"
 

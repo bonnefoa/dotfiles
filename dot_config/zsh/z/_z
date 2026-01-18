@@ -12,9 +12,13 @@ function _z() {
         __zoxide_result=''
     fi
 
-    # This will trigger the __zoxide_z_complete_helper
-    # as the terminal will answer "\e[0n" on which the helper
-    # function is bound
-    __zoxide_z_prefix=''
-    builtin printf '\e[5n'
+    # Set a result to ensure completion doesn't re-run
+    compadd -Q ""
+
+    # Bind '\e[0n' to helper function.
+    \builtin bindkey '\e[0n' '__zoxide_z_complete_helper'
+    # Sends query device status code, which results in a '\e[0n' being sent to console input.
+    \builtin printf '\e[5n'
+
+    return 0
 }

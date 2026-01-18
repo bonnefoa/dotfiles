@@ -25,7 +25,7 @@
 fallback = ''
 
 [matching]
-'Steam' = ''
+'steam' = ''
 'mpv' = ''
 'rtorrent' = ''
 'chromium' = ''
