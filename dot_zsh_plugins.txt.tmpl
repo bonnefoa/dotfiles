@@ -2,8 +2,13 @@ getantidote/use-omz
 robbyrussell/oh-my-zsh path:lib/git.zsh
 robbyrussell/oh-my-zsh path:lib/theme-and-appearance.zsh
 
-"$HOME/.config/zsh/conf"
 "$HOME/.config/zsh/linux"
+{{ if eq .chezmoi.os "darwin" -}}
+"$HOME/.config/zsh/mac"
+robbyrussell/oh-my-zsh path:plugins/kubectl
+jonmosco/kube-ps1
+{{ end -}}
+"$HOME/.config/zsh/conf"
 
 robbyrussell/oh-my-zsh path:plugins/fzf
 robbyrussell/oh-my-zsh path:plugins/git
