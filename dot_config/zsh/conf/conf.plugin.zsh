@@ -16,7 +16,7 @@ export PAGER="less"
 export LESS=" -S -R"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export PATH="$HOME/.local/bin:$HOME/local/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/dd/devtools/bin/:$HOME/perl5/bin/:$PATH"
-export PKG_CONFIG_PATH=/usr/lib/pkgconfig/
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig/:$PKG_CONFIG_PATH"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
