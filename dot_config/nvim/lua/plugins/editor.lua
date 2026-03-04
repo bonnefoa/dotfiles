@@ -6,6 +6,7 @@ return {
 	"tpope/vim-commentary",
 	"ludovicchabant/vim-gutentags",
 	"freitass/todo.txt-vim",
+	"rhysd/vim-llvm",
 
 	{
 		"stevearc/conform.nvim",
