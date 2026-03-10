@@ -29,6 +29,8 @@ export AWS_ASSUME_ROLE_TTL=1h
 export SYSTEMD_DEBUGGER=cgdb
 export PGDATA=~/temp/pg_data
 export PERL5LIB=$PERL5LIB:~/dd/postgres/src/test/perl/
+export TERM=xterm-new
+export COLORTERM=truecolor
 
 # Vim mode timeout
 export KEYTIMEOUT=1

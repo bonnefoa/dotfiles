@@ -3,6 +3,6 @@
 yay -Syu ripgrep zsh-antidote meson autoconf bemenu bemenu-wayland chrony clang ctags eza feh firefox go gzip htop iproute2 jq kitty lsof lua meson ninja neovim noto-fonts-cjk noto-fonts-emoji noto-fonts npm openssh pavucontrol pulseaudio-bluetooth pulseaudio sudo strace zoxide-git swww
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
-brew install ripgrep fzf antidote tmux nvim zoxide firefox htop jq ninja meson tree-sitter font-meslo-lg-nerd-font
+brew install ripgrep fzf antidote tmux nvim zoxide firefox htop jq ninja meson tree-sitter font-meslo-lg-nerd-font tree-sitter-cli fd ctags-exuberant pylsp pyright
 {{ end -}}
 [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
