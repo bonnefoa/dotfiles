@@ -1,0 +1,16 @@
+\set pgss 'SELECT queryid, toplevel, left(query, 120), plans, calls, rows FROM pg_stat_statements ORDER BY calls DESC;'
+\set pgss_rst 'select * from pg_stat_statements_reset();'
+\set pgsa 'select * from pg_stat_activity where state=''active'' and pid!=pg_backend_pid();'
+\pset null '<null>'
+
+\set wal_lsn_start 'SELECT pg_current_wal_lsn() \\gset'
+\set wal_records 'SELECT * FROM pg_get_wal_records_info(:''pg_current_wal_lsn'', ''FFFFFFFF/FFFFFFFF'');'
+\set wal_records_full 'SELECT * FROM pg_get_wal_records_info(:''pg_current_wal_lsn'', ''FFFFFFFF/FFFFFFFF'');'
+\set wal_stats 'SELECT * FROM pg_get_wal_stats(:''pg_current_wal_lsn'', ''FFFFFFFF/FFFFFFFF'') order by combined_size desc;'
+\set wal_stats_per_record 'SELECT * FROM pg_get_wal_stats(:''pg_current_wal_lsn'', ''FFFFFFFF/FFFFFFFF'', true) order by combined_size desc;'
+
+-- \set PROMPT1 '%/%R%x status:%P,%:PIPELINE_SYNC_COUNT:,%:PIPELINE_COMMAND_COUNT:,%:PIPELINE_RESULT_COUNT: %# '
+-- \set PROMPT2 '%/%R%x status:%P,%:PIPELINE_SYNC_COUNT:,%:PIPELINE_COMMAND_COUNT:,%:PIPELINE_RESULT_COUNT: %# '
+-- \set PROMPT1 '%/%R%x status:%P,sync_count:%:PIPELINE_SYNC_COUNT:,command_count:%:PIPELINE_COMMAND_COUNT:,pending_results:%:PIPELINE_RESULT_COUNT: %# '
+-- \set PROMPT2 '%/%R%x status:%P,sync_count:%:PIPELINE_SYNC_COUNT:,command_count:%:PIPELINE_COMMAND_COUNT:,pending_results:%:PIPELINE_RESULT_COUNT: %# '
+-- \set PROMPT1 '=(pipeline=%P,sync=%:PIPELINE_SYNC_COUNT:,cmd=%:PIPELINE_COMMAND_COUNT:,res=%:PIPELINE_RESULT_COUNT:)%#'
