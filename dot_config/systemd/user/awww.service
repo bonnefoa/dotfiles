@@ -1,0 +1,11 @@
+[Unit]
+Description=awww daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/awww-daemon
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=sway-session.target
