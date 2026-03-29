@@ -1,4 +1,4 @@
-export PGHOST=127.0.0.1
+export PGHOST=/tmp
 export PGUSER=postgres
 
 function pg_functions() {
