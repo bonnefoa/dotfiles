@@ -4,7 +4,7 @@ return {
   -- syntax highlighting.
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false, -- last release is way too old and doesn't work on Windows
+    branch = "main",
     build = ":TSUpdate",
     event = { "VeryLazy" },
     lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
@@ -25,9 +25,6 @@ return {
     ---@type TSConfig
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "go", "python", "rust" },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -36,6 +33,23 @@ return {
           scope_incremental = "grc",
           node_decremental = "grm",
         },
+      },
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "json",
+        "lua",
+        "go",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "regex",
+        "rust",
+        "toml",
+        "vim",
+        "xml",
+        "yaml",
       },
       textobjects = {
         select = {
@@ -74,24 +88,27 @@ return {
     ---@param opts TSConfig
     config = function(_, opts)
       require("nvim-treesitter.config").setup(opts)
-      -- Treesitter features for installed languages must be enabled manually
+      vim.treesitter.language.register('hexpat', { 'hexpat' })
+      require('nvim-treesitter.parsers').hexpat = {
+        install_info = {
+          path = '/home/sora/git-repos/tree-sitter-hexpat',
+          generate = true,
+        }
+      }
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "c", "lua", "vim", "vimdoc", "query", "go", "python", "rust" },
+        pattern = { "c", "lua", "vim", "vimdoc", "query", "go", "python", "rust", "hexpat" },
         callback = function()
           -- Enable native Neovim treesitter highlighting
           vim.treesitter.start()
-
---          -- Configure code folding
---          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
---          vim.wo.foldmethod = "expr"
---          vim.wo.foldlevel = 99
---
---          -- Enable treesitter-based indentation
---          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          -- Enable treesitter-based indentation
+          -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
       })
     end,
   },
 
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+  }
 }
