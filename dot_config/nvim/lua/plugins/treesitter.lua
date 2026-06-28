@@ -96,7 +96,7 @@ return {
         }
       }
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "c", "lua", "vim", "vimdoc", "query", "go", "python", "rust", "hexpat" },
+        pattern = { "c", "lua", "vim", "vimdoc", "query", "go", "python", "rust", "hexpat", "javascript" },
         callback = function()
           -- Enable native Neovim treesitter highlighting
           vim.treesitter.start()
