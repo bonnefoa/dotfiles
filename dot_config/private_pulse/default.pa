@@ -151,3 +151,7 @@ set-card-profile alsa_card.usb-CalDigit__Inc._CalDigit_Thunderbolt_3_Audio-00 of
 .ifexists alsa_output.pci-0000_0b_00.1.hdmi-stereo-extra2
 set-default-sink alsa_output.pci-0000_0b_00.1.hdmi-stereo-extra2
 .endif
+
+.ifexists alsa_card.pci-0000_0b_00.4
+set-card-profile alsa_card.pci-0000_0b_00.4 off
+.endif
