@@ -42,6 +42,7 @@ focus_wrapping no
 for_window [class="^firefox$"] inhibit_idle fullscreen
 for_window [class="mpv"] inhibit_idle fullscreen
 
+assign [class="steam"] workspace number 2
 assign [app_id="firefox-base"] workspace number 9
 assign [app_id="firefox-Google"] workspace number 8
 
@@ -180,7 +181,7 @@ include /etc/sway/config.d/*
 # exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 exec firefox --name firefox-base --no-remote -P base
-exec firefox --name firefox-Google --no-remote -P Google
+# exec firefox --name firefox-Google --no-remote -P Google
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
 exec kitty
 exec SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket keepassxc
