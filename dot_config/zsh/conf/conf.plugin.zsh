@@ -31,7 +31,9 @@ export SYSTEMD_DEBUGGER=cgdb
 export PGDATA=~/temp/pg_data
 export PERL5LIB=$PERL5LIB:~/dd/postgres/src/test/perl/
 export CLICOLOR=1
-export TERM=xterm-new
+export TERM=kitty
+export CC=clang
+export CXX=clang++
 export COLORTERM=truecolor
 
 # Vim mode timeout
