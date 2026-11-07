@@ -181,9 +181,10 @@ include /etc/sway/config.d/*
 # exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 exec firefox --name firefox-base --no-remote -P base
-# exec firefox --name firefox-Google --no-remote -P Google
+exec firefox --name firefox-Google --no-remote -P Google
 exec polychromatic-cli -s PM2109H13001681 --dpi 2400
 exec kitty
+exec mako
 exec SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket keepassxc
 # exec kitty --class TODO zsh -c "vim notes/todo.txt; $SHELL"
 # exec kitty --class IRC zsh -c "SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket .local/bin/wait_and_connect.sh; $SHELL"
