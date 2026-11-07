@@ -34,7 +34,7 @@ vim.lsp.config("ltex_plus", {
 		},
 	},
 })
-vim.lsp.enable("ltex_plus")
+-- vim.lsp.enable("ltex_plus")
 
 -- On-demand LTeX checking via the _ltex.checkDocument command.
 -- A check REPLACES the buffer's diagnostics with the checked range's
