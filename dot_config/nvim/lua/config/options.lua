@@ -49,6 +49,9 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.wrap = false
 
+-- Open diffs in a vertical split
+vim.opt.diffopt:append("vertical")
+
 vim.cmd([[colorscheme NeoSolarized]])
 
 vim.g.strip_whitespace_on_save = false
