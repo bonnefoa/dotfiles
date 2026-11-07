@@ -4,8 +4,9 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
     lazy = false,
-		config = function()
-    end,
+		config = function(_, opts)
+			vim.g.rustaceanvim = opts
+		end,
 		opts = {
 			server = {
 				on_attach = function(_, bufnr)
@@ -23,9 +24,9 @@ return {
 								enable = true,
 							},
 						},
-						checkOnSave = diagnostics == "rust-analyzer",
+						checkOnSave = true,
 						diagnostics = {
-							enable = diagnostics == "rust-analyzer",
+							disabled = { "inactive-code" },
 						},
 						procMacro = {
 							enable = true,
