@@ -1,6 +1,7 @@
 return {
 	"overcache/NeoSolarized",
 	"tpope/vim-fugitive",
+  "sindrets/diffview.nvim",
 	"tpope/vim-repeat",
 	"tpope/vim-eunuch",
 	"tpope/vim-commentary",
@@ -26,10 +27,10 @@ return {
 		opts = function()
 			return {
 				notify_no_formatters = true,
---				format_on_save = {
---					timeout_ms = 500,
---					lsp_format = "fallback",
---				},
+				--				format_on_save = {
+				--					timeout_ms = 500,
+				--					lsp_format = "fallback",
+				--				},
 				default_format_opts = {
 					timeout_ms = 3000,
 					async = false,
@@ -44,7 +45,12 @@ return {
 					sh = { "shfmt" },
 				},
 				formatters = {
-					injected = { options = { ignore_errors = true } },
+					injected = {
+						options = {
+							default_edition = "2024",
+							ignore_errors = true,
+						},
+					},
 				},
 			}
 		end,
@@ -165,13 +171,13 @@ return {
 	},
 
 	"farmergreg/vim-lastplace",
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({ })
-    end
-  },
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 
 	{
 		"ray-x/go.nvim",
